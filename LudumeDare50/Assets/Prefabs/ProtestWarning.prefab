@@ -841,6 +841,7 @@ MonoBehaviour:
   _peopleCount: {fileID: 9080778687313773234}
   _powerBar: {fileID: 9080778686788134359}
   _powerCount: {fileID: 9080778686721083683}
+  _revolutionPeriod: 1
 --- !u!1 &9080778688285182728
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,20 +1,19 @@
 using UnityEngine;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using Protesters;
 
 namespace City
 {
-    public class Region : MonoBehaviour
+    public class Region : MonoBehaviour, IProtestersChooser
     {
+        public event ProtestersChoosed ProtestersChoosed;
         [SerializeField]
         private Material _regionColor;
         [SerializeField]
-        private List<Square> _squares;
+        private Square[] _squares;
         [SerializeField]
         private RevolutionStage[] _stages;
-        private RevolutionBar _revolutionBar;
         private int _curStageIndex;
         private bool _revolutionStarted;
 
@@ -22,10 +21,9 @@ namespace City
         {
             foreach(Square square in _squares)
                 square.GetComponent<MeshRenderer>().material = _regionColor;
-            _revolutionBar = FindObjectOfType<RevolutionBar>();
-            _revolutionBar.RevolutionLevelChanged += ChangeStage;
+            FindObjectOfType<RevolutionBar>().RevolutionLevelChanged += ChangeStage;
             _revolutionStarted = false;
-            ChangeStage(_revolutionBar.Level);
+            ChangeStage(0);
         }
 
         private void ChangeStage(float level)
@@ -62,8 +60,21 @@ namespace City
         {
             var stage = _stages[_curStageIndex];
             float delay = UnityEngine.Random.Range(stage.MinDelay, stage.MaxDelay); 
+            Debug.Log("Prepare spawn in "+ delay);
             yield return new WaitForSeconds(delay);
-            
+            ChooseProtestors();
+            StartCoroutine(RevolutionDelay());
+            Debug.Log("Spawn");
+        }
+
+        private void ChooseProtestors()
+        {
+            var stage = _stages[_curStageIndex];
+            int people = UnityEngine.Random.Range(stage.MinNumber, stage.MaxNumber + 1);
+            int power = UnityEngine.Random.Range(stage.MinPower, stage.MaxPower + 1);
+            var square = _squares[UnityEngine.Random.Range(0, _squares.Length)];
+            if(square.Miting != null) square.Miting.AddProtesters(people, power);
+            else ProtestersChoosed?.Invoke(people, power, square.Center, square);
         }
     }
 

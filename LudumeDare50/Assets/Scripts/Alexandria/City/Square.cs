@@ -1,4 +1,5 @@
 using UnityEngine;
+using Protesters;
 
 namespace City
 {
@@ -8,6 +9,10 @@ namespace City
     {
         public event OnSquare EnterSquare;
         public event OnSquare LeaveSquare;
+        [SerializeField]
+        private Transform _transform;
+        public ProtestWarning Miting;
+        public Vector3 Center => _transform.position;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -17,6 +22,11 @@ namespace City
         private void OnTriggerExit(Collider other)
         {
             LeaveSquare?.Invoke(other, this);
+        }
+
+        public void EndMiting()
+        {
+            Miting = null;
         }
     }
 }
