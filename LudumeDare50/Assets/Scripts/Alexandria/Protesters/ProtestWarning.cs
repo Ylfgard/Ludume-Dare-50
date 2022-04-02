@@ -4,8 +4,10 @@ using TMPro;
 
 namespace Protesters
 {
+    public delegate void EventHappend();
     public class ProtestWarning : MonoBehaviour
     {
+        public event EventHappend ProtestsEnded;
         [SerializeField]
         private RectTransform _transform;
         [Header ("People")]
@@ -18,32 +20,59 @@ namespace Protesters
         private Slider _powerBar;
         [SerializeField]
         private TextMeshProUGUI _powerCount;
+        [SerializeField]
+        private int _revolutionPeriod;
+        private RevolutionBar _revolutionBar;
 
-        public void Initialize(int maxPeople, int maxPower, Vector3 position)
+        public void Initialize(int maxPeople, float maxPower, Vector3 position, RevolutionBar revolutionBar)
         {
-            _transform.position = position;
+            _revolutionPeriod *= 100;
+            _revolutionBar = revolutionBar;
+            _transform.position = Camera.main.WorldToScreenPoint(position);
             _peopleBar.maxValue = maxPeople;
             _peopleBar.value = maxPeople;
-            _peopleCount.text = maxPeople.ToString();
             _powerBar.maxValue = maxPower;
             _powerBar.value = maxPower;
-            _powerCount.text = maxPower.ToString();
+            ShowCount();
         }
 
-        public void ChangePeopleCount(int value)
+        private void FixedUpdate()
+        {
+            var value = _powerBar.value * Time.deltaTime / _revolutionPeriod;
+            _revolutionBar.ChangeRevolutionLevel(value);
+        }
+
+        public void AddProtesters(int newPeople, float newPower)
+        {
+            _peopleBar.maxValue += newPeople;
+            _peopleBar.value += newPeople;
+            _powerBar.maxValue += newPower;
+            _powerBar.value += newPower;
+            ShowCount();
+        }
+
+        public void DecreasePeopleCount(int value)
         {
             var people = _peopleBar.value;
-            people += value;
-            if(people <= 0)
-            {
-                Debug.Log("Miting ended");
-                Destroy(gameObject);
-                return;
-            }
-            _peopleCount.text = people.ToString();
+            people -= value;
+            if(people <= 0) EndProtest();
             float percent = people / _powerBar.maxValue;
             _powerBar.value = _powerBar.maxValue * percent;
-            _powerCount.text = _peopleBar.value.ToString();
+            ShowCount();
+        }
+        
+        private void EndProtest()
+        {
+            Debug.Log("Miting ended");
+            ProtestsEnded?.Invoke();
+            Destroy(gameObject);
+            return;
+        }
+
+        private void ShowCount()
+        {
+            _peopleCount.text = _peopleBar.value.ToString();
+            _powerCount.text = _powerBar.value.ToString();
         }
     }
 }

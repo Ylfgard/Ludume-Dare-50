@@ -1607,6 +1607,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26be9e41177e3e944bd7645db3a659c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _transform: {fileID: 784547210}
+  Miting: {fileID: 0}
 --- !u!1 &813654409
 GameObject:
   m_ObjectHideFlags: 0
@@ -1940,6 +1942,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26be9e41177e3e944bd7645db3a659c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _transform: {fileID: 0}
+  Miting: {fileID: 0}
 --- !u!1 &1000971402
 GameObject:
   m_ObjectHideFlags: 0
@@ -2048,6 +2052,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26be9e41177e3e944bd7645db3a659c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _transform: {fileID: 1000971403}
+  Miting: {fileID: 0}
 --- !u!1 &1039313935
 GameObject:
   m_ObjectHideFlags: 0
@@ -2690,31 +2696,31 @@ MonoBehaviour:
   - _minRevolutionLevel: 0
     _minDelay: 25
     _maxDelay: 40
-    _minNumber: 3
+    _minNumber: 1
     _maxNumber: 5
-    _minPower: 5
-    _maxPower: 10
+    _minPower: 3
+    _maxPower: 6
   - _minRevolutionLevel: 3
     _minDelay: 20
     _maxDelay: 35
     _minNumber: 4
     _maxNumber: 7
-    _minPower: 7
-    _maxPower: 12
+    _minPower: 6
+    _maxPower: 10
   - _minRevolutionLevel: 6
     _minDelay: 20
     _maxDelay: 30
     _minNumber: 7
     _maxNumber: 10
     _minPower: 10
-    _maxPower: 17
+    _maxPower: 15
   - _minRevolutionLevel: 9
     _minDelay: 15
     _maxDelay: 25
     _minNumber: 10
     _maxNumber: 15
-    _minPower: 20
-    _maxPower: 30
+    _minPower: 14
+    _maxPower: 20
 --- !u!1 &1264656409
 GameObject:
   m_ObjectHideFlags: 0
@@ -3075,6 +3081,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26be9e41177e3e944bd7645db3a659c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _transform: {fileID: 1409277200}
+  Miting: {fileID: 0}
 --- !u!1 &1456693166
 GameObject:
   m_ObjectHideFlags: 0
@@ -3642,6 +3650,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b7aa357baa7474e85c690e216c3c16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _protestorsWarning: {fileID: 9080778688204869499, guid: e3a0f244110fabe41a819e589a7146d0, type: 3}
+  _protestorsParentTransf: {fileID: 1197536923}
 --- !u!1 &1689076578
 GameObject:
   m_ObjectHideFlags: 0
@@ -4014,22 +4024,22 @@ MonoBehaviour:
     _maxDelay: 30
     _minNumber: 4
     _maxNumber: 7
-    _minPower: 12
-    _maxPower: 18
+    _minPower: 6
+    _maxPower: 10
   - _minRevolutionLevel: 7
     _minDelay: 15
     _maxDelay: 30
     _minNumber: 5
     _maxNumber: 8
-    _minPower: 16
-    _maxPower: 22
+    _minPower: 11
+    _maxPower: 17
   - _minRevolutionLevel: 9
     _minDelay: 15
     _maxDelay: 25
     _minNumber: 9
     _maxNumber: 10
-    _minPower: 23
-    _maxPower: 30
+    _minPower: 18
+    _maxPower: 25
 --- !u!1 &2031466176
 GameObject:
   m_ObjectHideFlags: 0
