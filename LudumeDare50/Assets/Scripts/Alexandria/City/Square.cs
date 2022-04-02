@@ -1,8 +1,6 @@
 using UnityEngine;
-using System.Collections.Generic;
-using Police.Avtozak;
 
-namespace Protesters.Square
+namespace City
 {
     public delegate void OnSquare(Collider collider, Square square);
 

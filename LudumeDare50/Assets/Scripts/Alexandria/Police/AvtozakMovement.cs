@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
-using Protesters.Square;
+using City;
 
 namespace Police.Avtozak
 {
@@ -21,17 +21,10 @@ namespace Police.Avtozak
         public void MoveToSquare(Vector3 point, Square square)
         {
             MoveToPoint(point);
-            if(square == _onSquare) return;
-            if(_onSquare != null)
-            { 
-                Debug.Log("On square " + _onSquare);
-                _onSquare.LeaveSquare -= LeaveSquare;
-                _onSquare.LeaveSquare += LeaveSquare;
-            } 
+            if(square == _onSquare || square == _targetSquare) return;
             if(_targetSquare != null) _targetSquare.EnterSquare -= ArrivedOnSquare;
             square.EnterSquare += ArrivedOnSquare;
             _targetSquare = square;
-            Debug.Log("Move to " + square);
         }
 
         private void ArrivedOnSquare(Collider collider, Square square)
@@ -40,6 +33,7 @@ namespace Police.Avtozak
             var avtozak = collider.GetComponent<AvtozakMovement>();
             if(avtozak != this) return;
             _onSquare = square;
+             _onSquare.LeaveSquare += LeaveSquare;
             _targetSquare = null;
             square.EnterSquare -= ArrivedOnSquare;
         }
