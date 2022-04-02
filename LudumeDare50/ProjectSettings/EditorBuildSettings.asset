@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 2124b5765617ad74b8f23965a39aab82
+  - enabled: 1
+    path: Assets/Scenes/Alexandria.unity
+    guid: 7331312ab2e196649a345cc767f109ef
   m_configObjects: {}
