@@ -2,7 +2,6 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using FMODUnity;
-using FMOD;
 
 public class TutorialSystem : MonoBehaviour
 {
@@ -45,16 +44,17 @@ public class TutorialSystem : MonoBehaviour
 
     public void GoOnNextSentence()
     {
-        _contunieButton.SetActive(false);
-
-        if (index < _sentences.Length - 1)
+        if (_textDisplay.text == _sentences[index])
         {
-            index++;
-            _textDisplay.text = "";
-            StartCoroutine(Type());
+            if (index < _sentences.Length - 1)
+            {
+                index++;
+                _textDisplay.text = "";
+                StartCoroutine(Type());
+            }
+            else
+                _tutorialPanel.SetActive(false);
         }
-        else
-            _tutorialPanel.SetActive(false);
     }
 }
 
