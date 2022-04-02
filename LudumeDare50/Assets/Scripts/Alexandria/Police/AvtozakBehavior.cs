@@ -1,5 +1,5 @@
 using UnityEngine;
-using Protesters.Square;
+using City;
 
 namespace Police.Avtozak
 {
