@@ -57,7 +57,7 @@ namespace Protesters
         private void FixedUpdate()
         {
             if(_resisting) return;
-            var value = _protestWarning.PowerBar.value * Time.deltaTime / _revolutionPeriod;
+            var value = _protestWarning.PowerBar.value * Time.fixedDeltaTime / _revolutionPeriod;
             _revolutionBar.ChangeRevolutionLevel(value);
         }
 
