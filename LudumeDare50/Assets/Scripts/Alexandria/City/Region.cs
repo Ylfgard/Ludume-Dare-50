@@ -11,7 +11,7 @@ namespace City
         [SerializeField]
         private Material _regionColor;
         [SerializeField]
-        private Square[] _squares;
+        private MitingSquare[] _squares;
         [SerializeField]
         private RevolutionStage[] _stages;
         private int _curStageIndex;
@@ -60,11 +60,9 @@ namespace City
         {
             var stage = _stages[_curStageIndex];
             float delay = UnityEngine.Random.Range(stage.MinDelay, stage.MaxDelay); 
-            Debug.Log("Prepare spawn in "+ delay);
             yield return new WaitForSeconds(delay);
             ChooseProtestors();
             StartCoroutine(RevolutionDelay());
-            Debug.Log("Spawn");
         }
 
         private void ChooseProtestors()

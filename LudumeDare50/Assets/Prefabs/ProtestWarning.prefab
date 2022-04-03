@@ -758,6 +758,7 @@ GameObject:
   - component: {fileID: 9080778688204869496}
   - component: {fileID: 9080778688204869497}
   - component: {fileID: 2888299126610072234}
+  - component: {fileID: 1158608777817199648}
   m_Layer: 5
   m_Name: ProtestWarning
   m_TagString: Untagged
@@ -837,11 +838,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transform: {fileID: 9080778688204869498}
+  _miting: {fileID: 1158608777817199648}
   _peopleBar: {fileID: 9080778686893665668}
   _peopleCount: {fileID: 9080778687313773234}
   _powerBar: {fileID: 9080778686788134359}
   _powerCount: {fileID: 9080778686721083683}
+--- !u!114 &1158608777817199648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9080778688204869499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8d61f54754b2e941899d241cc1292bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _protestWarning: {fileID: 2888299126610072234}
   _revolutionPeriod: 1
+  _resistPeriod: 4
 --- !u!1 &9080778688285182728
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,12 +21,11 @@ namespace Protesters
                 pc.ProtestersChoosed += SpawnProtestors;
         }
 
-        public void SpawnProtestors(int maxPeople, int maxPower, Vector3 position, Square square)
+        public void SpawnProtestors(int maxPeople, int maxPower, Vector3 position, MitingSquare square)
         {
-            var miting = Instantiate(_protestorsWarning, position, Quaternion.identity, _protestorsParentTransf);
-            square.StartMiting(miting.GetComponent<ProtestWarning>());
-            square.Miting.ProtestsEnded += square.EndMiting;
-            square.Miting.Initialize(maxPeople, maxPower, position, _revolutionBar);
+            var protest = Instantiate(_protestorsWarning, position, Quaternion.identity, _protestorsParentTransf).GetComponent<ProtestWarning>();
+            square.StartMiting(protest);
+            protest.Initialize(maxPeople, maxPower, position, _revolutionBar, square);
         }
     }
 }
