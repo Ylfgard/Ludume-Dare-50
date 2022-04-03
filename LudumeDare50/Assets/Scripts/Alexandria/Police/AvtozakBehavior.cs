@@ -49,7 +49,7 @@ namespace Police
             _movement.Initialize(_speed, this);
         }
 
-        public void UpgradeAvtozak(int health, float speed, int capacity, float arrestDelay)
+        public void Upgrade(int health, float speed, int capacity, float arrestDelay)
         {
             _health = health;
             _healthBar.maxValue = _health;
