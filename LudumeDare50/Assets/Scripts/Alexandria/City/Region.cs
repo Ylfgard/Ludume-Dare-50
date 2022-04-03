@@ -11,7 +11,7 @@ namespace City
         [SerializeField]
         private Material _regionColor;
         [SerializeField]
-        private Square[] _squares;
+        private MitingSquare[] _squares;
         [SerializeField]
         private RevolutionStage[] _stages;
         private int _curStageIndex;
@@ -60,11 +60,9 @@ namespace City
         {
             var stage = _stages[_curStageIndex];
             float delay = UnityEngine.Random.Range(stage.MinDelay, stage.MaxDelay); 
-            Debug.Log("Prepare spawn in "+ delay);
             yield return new WaitForSeconds(delay);
             ChooseProtestors();
             StartCoroutine(RevolutionDelay());
-            Debug.Log("Spawn");
         }
 
         private void ChooseProtestors()
@@ -73,7 +71,7 @@ namespace City
             int people = UnityEngine.Random.Range(stage.MinNumber, stage.MaxNumber + 1);
             int power = UnityEngine.Random.Range(stage.MinPower, stage.MaxPower + 1);
             var square = _squares[UnityEngine.Random.Range(0, _squares.Length)];
-            if(square.Miting != null) square.Miting.AddProtesters(people, power);
+            if(square.Miting != null) square.Miting.ChangeProtesters(people, power);
             else ProtestersChoosed?.Invoke(people, power, square.Center, square);
         }
     }
