@@ -31,12 +31,16 @@ namespace Police
         private float _arrestDelay;
         [SerializeField]
         private float _unloadingDelay;
+        [SerializeField]
+        private int _avtozakPrice;
         private Miting _onMiting;
 
         public int Health => _health;
         public float Speed => _speed;
         public int Capacity => _capacity;
         public float ArrestDelay => _arrestDelay;
+
+        public int AvtozakPrice => _avtozakPrice;
 
         private void Awake()
         {
@@ -49,7 +53,10 @@ namespace Police
             _movement.ArrivedOnPoliceStation += OnPoliceStation;
             _movement.LeavedPoliceStation += LeavePoliceStation;
         }
-
+        public void Initialize(Square square)
+        {
+            _movement.Initialize(Speed, this, square);
+        }
         public void Upgrade(int health, float speed, int capacity, float arrestDelay)
         {
             _health = health;
@@ -57,7 +64,7 @@ namespace Police
             _capacity = capacity;
             _occupancyBar.maxValue = _capacity;
             _speed = speed;
-            _movement.Initialize(_speed, this);
+            _movement.Initialize(_speed, this, _movement.OnSquare);
             _arrestDelay = arrestDelay;
         }
         

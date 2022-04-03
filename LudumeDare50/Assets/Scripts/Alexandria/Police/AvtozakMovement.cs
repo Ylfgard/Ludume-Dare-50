@@ -19,10 +19,11 @@ namespace Police
 
         public Square OnSquare => _onSquare;
 
-        public void Initialize(float speed, AvtozakBehavior behavior)
+        public void Initialize(float speed, AvtozakBehavior behavior, Square square)
         {
             _behavior = behavior;
             _agent.speed = speed;
+            _onSquare = square;
         }
 
         public void MoveToPoint(Vector3 point)
