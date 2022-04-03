@@ -1,7 +1,7 @@
 using UnityEngine;
 using City;
 
-namespace Police.Avtozak
+namespace Police
 {
     public class AvtozakBehavior : MonoBehaviour
     {

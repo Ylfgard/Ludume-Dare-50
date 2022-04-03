@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using City;
 
-namespace Police.Avtozak
+namespace Police
 {
     public class AvtozakMovement : MonoBehaviour
     {
@@ -33,7 +33,7 @@ namespace Police.Avtozak
             var avtozak = collider.GetComponent<AvtozakMovement>();
             if(avtozak != this) return;
             _onSquare = square;
-             _onSquare.LeaveSquare += LeaveSquare;
+            _onSquare.LeaveSquare += LeaveSquare;
             _targetSquare = null;
             square.EnterSquare -= ArrivedOnSquare;
         }

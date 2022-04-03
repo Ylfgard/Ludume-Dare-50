@@ -24,7 +24,7 @@ namespace Protesters
         public void SpawnProtestors(int maxPeople, int maxPower, Vector3 position, Square square)
         {
             var miting = Instantiate(_protestorsWarning, position, Quaternion.identity, _protestorsParentTransf);
-            square.Miting = miting.GetComponent<ProtestWarning>();
+            square.StartMiting(miting.GetComponent<ProtestWarning>());
             square.Miting.ProtestsEnded += square.EndMiting;
             square.Miting.Initialize(maxPeople, maxPower, position, _revolutionBar);
         }

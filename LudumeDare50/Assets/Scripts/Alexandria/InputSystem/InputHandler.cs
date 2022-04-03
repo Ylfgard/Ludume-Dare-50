@@ -1,5 +1,5 @@
 using UnityEngine;
-using Police.Avtozak;
+using Police;
 
 namespace InputSystem
 {
