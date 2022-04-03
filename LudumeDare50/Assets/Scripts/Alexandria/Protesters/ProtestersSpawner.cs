@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Linq;
 using City;
-using Protesters;
 
 namespace Protesters
 {

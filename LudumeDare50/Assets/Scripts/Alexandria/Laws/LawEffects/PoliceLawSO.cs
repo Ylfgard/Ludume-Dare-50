@@ -23,8 +23,7 @@ namespace Laws.Effects
     public enum AffectedAvtozaks
     {
         All,
-        Random,
-        Selected
+        Random
     }
 
     public enum PoliceLawType

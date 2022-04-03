@@ -1,10 +1,13 @@
 using UnityEngine;
 using Laws.Effects;
+using GameDataKeepers;
 
 namespace Laws.Managers
 {
     public class Lawmaker : MonoBehaviour
     {
+        [SerializeField]
+        private StoragesKeeper _storagesKeeper;
         [SerializeField]
         private TaxLawHandler _taxHandler;
         [SerializeField]
@@ -21,19 +24,19 @@ namespace Laws.Managers
                 switch(effect.Scope)
                 {
                     case LawScope.Tax:
-                    _taxHandler.ActivateEffect(effect as TaxLawSO, effect.Duration, effect.Delay);
+                    _taxHandler.ActivateEffect(_storagesKeeper, effect as TaxLawSO, effect.Duration, effect.Delay);
                     break;
 
                     case LawScope.PublicOpinion:
-                    _publicOpinionHandler.ActivateEffect(effect as PublicOpinionLawSO, effect.Duration, effect.Delay);
+                    _publicOpinionHandler.ActivateEffect(_storagesKeeper, effect as PublicOpinionLawSO, effect.Duration, effect.Delay);
                     break;
 
                     case LawScope.Mitings:
-                    _mitingsHandler.ActivateEffect(effect as MitingsLawSO, effect.Duration, effect.Delay);
+                    _mitingsHandler.ActivateEffect(_storagesKeeper, effect as MitingsLawSO, effect.Duration, effect.Delay);
                     break;
 
                     case LawScope.Police:
-                    _policeHandler.ActivateEffect(effect as PoliceLawSO, effect.Duration, effect.Delay);
+                    _policeHandler.ActivateEffect(_storagesKeeper, effect as PoliceLawSO, effect.Duration, effect.Delay);
                     break;
                 }
             }
