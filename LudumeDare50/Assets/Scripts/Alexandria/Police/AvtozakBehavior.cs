@@ -55,6 +55,7 @@ namespace Police
             _healthBar.maxValue = _health;
             _capacity = capacity;
             _occupancyBar.maxValue = _capacity;
+            _speed = speed;
             _movement.Initialize(_speed, this);
             _arrestDelay = arrestDelay;
         }
