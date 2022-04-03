@@ -23,8 +23,6 @@ namespace Police
         {
             _behavior = behavior;
             _agent.speed = speed;
-            ArrivedOnPoliceStation += _behavior.OnPoliceStation;
-            LeavedPoliceStation += _behavior.LeavePoliceStation;
         }
 
         public void MoveToPoint(Vector3 point)

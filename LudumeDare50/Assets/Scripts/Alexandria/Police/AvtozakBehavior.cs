@@ -30,6 +30,11 @@ namespace Police
         private float _unloadingDelay;
         private Miting _onMiting;
 
+        public int Health => _health;
+        public float Speed => _speed;
+        public int Capacity => _capacity;
+        public float ArrestDelay => _arrestDelay;
+
         private void Awake()
         {
             _healthBar.maxValue = _health;
@@ -39,7 +44,19 @@ namespace Police
             _count.text = "0";
             _movement.ArrivedOnMiting += StartArrests;
             _movement.LeavedMiting += EndArrests;
+            _movement.ArrivedOnPoliceStation += OnPoliceStation;
+            _movement.LeavedPoliceStation += LeavePoliceStation;
             _movement.Initialize(_speed, this);
+        }
+
+        public void UpgradeAvtozak(int health, float speed, int capacity, float arrestDelay)
+        {
+            _health = health;
+            _healthBar.maxValue = _health;
+            _capacity = capacity;
+            _occupancyBar.maxValue = _capacity;
+            _movement.Initialize(_speed, this);
+            _arrestDelay = arrestDelay;
         }
         
         public void MoveCommand(Vector3 point, GameObject target)
