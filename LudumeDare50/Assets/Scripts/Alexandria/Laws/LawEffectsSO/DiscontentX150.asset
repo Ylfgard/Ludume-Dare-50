@@ -13,3 +13,8 @@ MonoBehaviour:
   m_Name: DiscontentX150
   m_EditorClassIdentifier: 
   _scope: 1
+  _duration: 60
+  _delay: 0
+  _type: 0
+  _inPercent: 1
+  _value: 150

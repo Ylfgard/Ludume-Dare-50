@@ -18,5 +18,5 @@ MonoBehaviour:
     \u043D\u0435\u0434\u043E\u0432\u043E\u043B\u044C\u0441\u0442\u0432\u0430 \u0432\u044B\u0440\u0430\u0441\u0442\u0430\u0435\u0442
     \u043D\u0430 50%"
   _effects:
-  - {fileID: 11400000, guid: cfd731685d56aa44db1bfae6865c2a82, type: 2}
-  - {fileID: 11400000, guid: cfd731685d56aa44db1bfae6865c2a82, type: 2}
+  - {fileID: 11400000, guid: 852fb8088775d464dba614bc5aac8bec, type: 2}
+  - {fileID: 11400000, guid: 4f18a22961e1ab14d93fd93269b19031, type: 2}

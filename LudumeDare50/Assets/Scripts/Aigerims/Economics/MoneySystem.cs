@@ -6,8 +6,11 @@ public class MoneySystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _moneyText;
     [SerializeField] private float _timer;
     [SerializeField] private float _currentTime;
+    [SerializeField] private int _income;
 
     public int MoneyAmount;
+
+    public int Income => _income;
 
     #region Singleton Init
     private static MoneySystem _instance;
@@ -52,14 +55,23 @@ public class MoneySystem : MonoBehaviour
         _moneyText.text = MoneyAmount.ToString();
     }
 
+    public void ChangeMoneyCount(int value)
+    {
+        MoneyAmount += value;
+    }
+
+    public void ChangeIncome(int income)
+    {
+        _income = income;
+    }
+
     private int InscreaseMoney()
     {
-        return MoneyAmount += 100;
+        return MoneyAmount += _income;
     }
 
     private void Initialize()
     {
         enabled = true;
     }
-
 }

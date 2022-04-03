@@ -7,8 +7,11 @@ using TMPro;
 
 namespace Police
 {
+    public delegate void SendAvtozak(AvtozakBehavior avtozak);
+
     public class AvtozakBehavior : MonoBehaviour
     {
+        public event SendAvtozak Destructed;
         [SerializeField]
         private AvtozakMovement _movement;
         [SerializeField]
@@ -37,16 +40,14 @@ namespace Police
 
         private void Awake()
         {
-            _healthBar.maxValue = _health;
+            Upgrade(_health, _speed, _capacity, _arrestDelay);
             _healthBar.value = _health;
-            _occupancyBar.maxValue = _capacity;
             _occupancyBar.value = 0;
             _count.text = "0";
             _movement.ArrivedOnMiting += StartArrests;
             _movement.LeavedMiting += EndArrests;
             _movement.ArrivedOnPoliceStation += OnPoliceStation;
             _movement.LeavedPoliceStation += LeavePoliceStation;
-            _movement.Initialize(_speed, this);
         }
 
         public void Upgrade(int health, float speed, int capacity, float arrestDelay)
@@ -92,6 +93,7 @@ namespace Police
                 _movement.OnSquare.LeaveSquare(this);
             EndArrests();
             Debug.Log("Avtozak " + this + " destroyed");
+            Destructed?.Invoke(this);
             Destroy(gameObject);
         }
 
