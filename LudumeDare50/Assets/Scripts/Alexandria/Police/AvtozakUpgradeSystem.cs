@@ -165,7 +165,7 @@ namespace Police
         {
             if (MoneySystem.Instance.MoneyAmount >= _totalPrice)
             {
-                MoneySystem.Instance.MoneyAmount -= _totalPrice;
+                MoneySystem.Instance.DecreaseMoneyAmount(_totalPrice);
                 _behaviour.Upgrade(_behaviour.Health + _healthUpgradeValue, _behaviour.Speed + _speedUpgradeValue, _behaviour.Capacity + _capacityUpgradeValue, _behaviour.ArrestDelay + _arrestDelayUpgradeValue);
                 ResetAll();
             }

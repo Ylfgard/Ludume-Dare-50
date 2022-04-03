@@ -60,6 +60,11 @@ public class MoneySystem : MonoBehaviour
         MoneyAmount += value;
     }
 
+    public void DecreaseMoneyAmount(int value)
+    {
+        MoneyAmount -= value;
+    }
+
     public void ChangeIncome(int income)
     {
         _income = income;
