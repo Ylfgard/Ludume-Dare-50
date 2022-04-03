@@ -6,5 +6,10 @@ namespace City
     public class PoliceStation : Square
     {
         public event SendAvtozak AvtozakSpawned;
+
+        public void SpawnAvtozak()
+        {
+            //AvtozakSpawned?.Invoke();
+        }
     }
 }

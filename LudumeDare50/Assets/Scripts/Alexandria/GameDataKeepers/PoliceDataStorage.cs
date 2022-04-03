@@ -17,8 +17,11 @@ namespace GameDataKeepers
         private void Awake()
         {
             _avtozaks = FindObjectsOfType<AvtozakBehavior>().ToList();
+            _policeStations = FindObjectsOfType<PoliceStation>().ToList();
             foreach(var avtozak in _avtozaks)
                 avtozak.Destructed += RemoveAvtozak;
+            foreach(var station in _policeStations)
+                station.AvtozakSpawned += AddAvtozak;
         }
 
         private void AddAvtozak(AvtozakBehavior avtozak)
