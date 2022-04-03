@@ -2,14 +2,17 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using Police;
+using City;
 
 namespace GameDataKeepers
 {
     public class PoliceDataStorage : MonoBehaviour
     {
         private List<AvtozakBehavior> _avtozaks;
+        private List<PoliceStation> _policeStations;
 
         public List<AvtozakBehavior> Avtozaks => _avtozaks;
+        public List<PoliceStation> PoliceStations => _policeStations;
 
         private void Awake()
         {
