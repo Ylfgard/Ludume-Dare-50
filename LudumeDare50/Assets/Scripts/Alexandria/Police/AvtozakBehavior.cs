@@ -20,6 +20,8 @@ namespace Police
         private Slider _occupancyBar;
         [SerializeField]
         private TextMeshProUGUI _count;
+        [SerializeField]
+        private GameObject _outline;
         [Header ("Specifications")]
         [SerializeField]
         private int _health;
@@ -33,14 +35,16 @@ namespace Police
         private float _unloadingDelay;
         [SerializeField]
         private int _avtozakPrice;
+
         private Miting _onMiting;
 
         public int Health => _health;
         public float Speed => _speed;
         public int Capacity => _capacity;
         public float ArrestDelay => _arrestDelay;
-
         public int AvtozakPrice => _avtozakPrice;
+
+        public GameObject Outline => _outline;
 
         private void Awake()
         {
