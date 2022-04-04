@@ -20,7 +20,7 @@ public class GameOverHandler : MonoBehaviour
 
     private void GameOver()
     {
-        _storagesKeeper.PauseSystem.PauseClicked();
+        Time.timeScale = 0f;
         RuntimeManager.PlayOneShot(_loseSound);
         _gameOverWindow.SetActive(true);
     }
