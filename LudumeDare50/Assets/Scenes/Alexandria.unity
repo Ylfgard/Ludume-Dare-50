@@ -5010,7 +5010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bar: {fileID: 1039313938}
-  _passiveMoodChanging: 2
+  _passiveMoodChanging: 0
   _passiveMoodChangingPeriod: 1
   _crowdSound: event:/time
 --- !u!114 &1039313938
@@ -9414,7 +9414,6 @@ MonoBehaviour:
   _timer: 5
   _currentTime: 0
   _income: 100
-  _moneySound: event:/money
   MoneyAmount: 1000
 --- !u!4 &2124281378
 Transform:
