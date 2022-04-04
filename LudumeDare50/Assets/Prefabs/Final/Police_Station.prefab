@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 212051860272344212}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PointerPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6385588462409209773}
   - component: {fileID: 8091079871278776806}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,6 +123,25 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!95 &8066334802277936300
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7061778345542516947}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6cc7676c5383fde4e91af140e70c2a59, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7425797255992885904
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,7 +152,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7459458746152243995}
   - component: {fileID: 1920253886112534878}
-  m_Layer: 0
+  - component: {fileID: 130509198833977935}
+  m_Layer: 8
   m_Name: Police_Station
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,10 +193,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _center: {fileID: 7459458746152243995}
-  _avtozakPrefab: {fileID: 3733790091596912098, guid: 0b26c6ab08d17d248a9512d38ecd33f1, type: 3}
+  _avtozakPrefab: {fileID: 2265113756865404495, guid: 3ba65cc68df0c4c44a8de2419e0e2d07, type: 3}
   _spawnPoint: {fileID: 8640464323376103525}
   _arrivingPoint: {fileID: 5111006730354417779}
   _pointerPoint: {fileID: 212051860272344212}
+--- !u!65 &130509198833977935
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7425797255992885904}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4, y: 4, z: 4}
+  m_Center: {x: 0, y: 2, z: 0}
 --- !u!1 &7560231097068881263
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +219,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5111006730354417779}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ArrivingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +249,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8640464323376103525}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -292,6 +325,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PoliceStation
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ec383dbaa68132a408c8de1382b98377, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1526581895561725240, guid: ec383dbaa68132a408c8de1382b98377, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069533566575079563, guid: ec383dbaa68132a408c8de1382b98377, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec383dbaa68132a408c8de1382b98377, type: 3}
 --- !u!4 &1862513258479597820 stripped
@@ -324,15 +369,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5908983850a0fdf40b54fc6808fef38b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5908983850a0fdf40b54fc6808fef38b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5908983850a0fdf40b54fc6808fef38b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5908983850a0fdf40b54fc6808fef38b, type: 3}
       propertyPath: m_LocalRotation.z
@@ -344,7 +389,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5908983850a0fdf40b54fc6808fef38b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5908983850a0fdf40b54fc6808fef38b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -354,8 +399,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5908983850a0fdf40b54fc6808fef38b, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5908983850a0fdf40b54fc6808fef38b, type: 3}
+--- !u!1 &7061778345542516947 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5908983850a0fdf40b54fc6808fef38b, type: 3}
+  m_PrefabInstance: {fileID: 7980677797663653250}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7587344162898041449 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5908983850a0fdf40b54fc6808fef38b, type: 3}

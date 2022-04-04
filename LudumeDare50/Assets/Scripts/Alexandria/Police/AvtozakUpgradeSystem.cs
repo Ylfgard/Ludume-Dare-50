@@ -15,7 +15,6 @@ namespace Police
 
         [Header ("UI windows")]
         [SerializeField] private GameObject _upgradeWindow;
-        [SerializeField] private GameObject _shopWindow;
 
 
         [Header("Values")]

@@ -9,8 +9,6 @@ namespace City
     {
         public event ProtestersChoosed ProtestersChoosed;
         [SerializeField]
-        private Material _regionColor;
-        [SerializeField]
         private MitingSquare[] _squares;
         [SerializeField]
         private RevolutionStage[] _stages;
@@ -19,8 +17,6 @@ namespace City
 
         private void Awake()
         {
-            foreach(Square square in _squares)
-                square.GetComponent<MeshRenderer>().material = _regionColor;
             FindObjectOfType<RevolutionBar>().RevolutionLevelChanged += ChangeStage;
             _revolutionStarted = false;
             ChangeStage(0);

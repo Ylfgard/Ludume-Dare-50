@@ -65,14 +65,6 @@ namespace Laws.Managers
             return availableTiers[availableTiers.Count - 1];
         }
 
-        private void Update()
-        {
-            if(Input.GetKeyDown(KeyCode.Space))
-            {
-                SpawnLaw();
-            }    
-        }
-
         private void RemoveLaw(Law law)
         {
             _laws.Remove(law);
