@@ -410,7 +410,7 @@ MonoBehaviour:
   _arrestTime: 3
   _arrestDelay: 1
   _unloadingDelay: 1
-  _avtozakPrice: 5000
+  _avtozakPrice: 4000
   _rewardForArrested: 150
 --- !u!114 &4642176295439433289
 MonoBehaviour:
