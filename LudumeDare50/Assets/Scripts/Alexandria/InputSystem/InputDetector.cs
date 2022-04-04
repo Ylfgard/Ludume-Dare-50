@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
+using GameDataKeepers;
 
 namespace InputSystem
 {
@@ -10,22 +11,33 @@ namespace InputSystem
         private InputHandler _inputHandler;
         [SerializeField]
         private LayerMask _ignoreLayers;
-        
-        [SerializeField]
-        private LayerMask _UILayer;
         [SerializeField]
         private LayerMask[] _selectableLayers;
         private EventSystem _eventSystem;
+        private bool _inputDeactivated;
 
         private void Awake()
         {
             _eventSystem = FindObjectOfType<EventSystem>();
+            FindObjectOfType<StoragesKeeper>().RevolutionBar.RevolutionLevelMaximum += DeactivateInput;
+            _inputDeactivated = false;
         }
 
         private void Update()
         {
+            if(_inputDeactivated) return;
             if(Input.GetMouseButtonDown(0)) LeftMouseButton();
             else if(Input.GetMouseButtonDown(1)) RightMouseButton();
+        }
+
+        public void DeactivateInput()
+        {
+            _inputDeactivated = true;
+        }
+
+        public void ActivateInput()
+        {
+            _inputDeactivated = false;
         }
 
         private void LeftMouseButton()
