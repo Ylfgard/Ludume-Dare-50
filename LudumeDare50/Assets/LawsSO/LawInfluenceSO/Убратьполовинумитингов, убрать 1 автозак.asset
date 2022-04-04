@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "\u0423\u0431\u0440\u0430\u0442\u044C\u043F\u043E\u043B\u043E\u0432\u0438\u043D\u0443\u043C\u0438\u0442\u0438\u043D\u0433\u043E\u0432,
     \u0443\u0431\u0440\u0430\u0442\u044C 1 \u0430\u0432\u0442\u043E\u0437\u0430\u043A"
   m_EditorClassIdentifier: 
-  _name: 
+  _name: Kamikaze
   _description: Removes 50% of meetings, the player loses a random prison truck
   _effects:
   - {fileID: 11400000, guid: 164cd55c51139574fbb750b282cc9d69, type: 2}
