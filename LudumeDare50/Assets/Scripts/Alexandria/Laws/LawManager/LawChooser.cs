@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using FMODUnity;
 using GameDataKeepers;
 
 namespace Laws.Managers
@@ -10,12 +11,18 @@ namespace Laws.Managers
         private GameObject _law;
         [SerializeField]
         private Transform _lawsPoint;
+        [SerializeField] [EventRef]
+        private string _lawChoosed;
         [SerializeField] [Range (0, 100)]
         private int _emptyChance;
+        [SerializeField]
+        private int _lawLimit;
         private StoragesKeeper _storagesKeeper;
+        private List<Law> _laws;
 
         private void Start()
         {
+            _laws = new List<Law>(_lawLimit);
             _storagesKeeper = FindObjectOfType<StoragesKeeper>();
             var squares = _storagesKeeper.MitingsStorage.MitingSquares;
             foreach(var square in squares)
@@ -58,13 +65,30 @@ namespace Laws.Managers
             return availableTiers[availableTiers.Count - 1];
         }
 
+        private void Update()
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                SpawnLaw();
+            }    
+        }
+
+        private void RemoveLaw(Law law)
+        {
+            _laws.Remove(law);
+        }
+
         private void SpawnLaw()
         {
+            if(_laws.Count >= _lawLimit) return;
             if(Random.Range(1, 101) <= _emptyChance) return;
             LawContentSO lawContent = ChooseRandomLawContent();
             if(lawContent == null) return;
             var law = Instantiate(_law, _lawsPoint.position, Quaternion.identity, _lawsPoint).GetComponent<Law>();
             law.Initialize(lawContent);
+            _laws.Add(law);
+            law.LawApplyed += RemoveLaw;
+            RuntimeManager.PlayOneShot(_lawChoosed);
         }
     }
 }
