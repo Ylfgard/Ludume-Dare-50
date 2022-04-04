@@ -408,7 +408,7 @@ MonoBehaviour:
   _speed: 2
   _capacity: 5
   _arrestTime: 3
-  _arrestDelay: 0
+  _arrestDelay: 1
   _unloadingDelay: 1
   _avtozakPrice: 5000
   _rewardForArrested: 150
