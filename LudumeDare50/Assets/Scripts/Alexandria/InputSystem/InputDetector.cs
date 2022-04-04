@@ -19,7 +19,6 @@ namespace InputSystem
 
         private void LeftMouseButton()
         {
-            _inputHandler.DeselectUnit();
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if(Physics.Raycast(ray, out hit, Mathf.Infinity, _selectableLayers)) _inputHandler.SelectUnit(hit);

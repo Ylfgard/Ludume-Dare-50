@@ -8,8 +8,6 @@ namespace Protesters
     { 
         [SerializeField]
         private GameObject _protestorsWarning;
-        [SerializeField]
-        private Transform _protestorsParentTransf;
         private RevolutionBar _revolutionBar;
 
         private void Awake()
@@ -20,12 +18,12 @@ namespace Protesters
                 pc.ProtestersChoosed += SpawnProtestors;
         }
 
-        public void SpawnProtestors(int maxPeople, int maxPower, Vector3 position, MitingSquare square)
+        public void SpawnProtestors(int maxPeople, int maxPower, MitingSquare square)
         {
-            var protest = Instantiate(_protestorsWarning, position, Quaternion.identity, _protestorsParentTransf).GetComponent<ProtestWarning>();
-            protest.Initialize(maxPeople, maxPower, position, _revolutionBar, square);
+            var HUD = square.HUD;
+            var protest = Instantiate(_protestorsWarning, HUD.position, HUD.rotation, square.HUD).GetComponent<ProtestWarning>();
+            protest.Initialize(maxPeople, maxPower, _revolutionBar, square);
             square.StartMiting(protest);
-            
         }
     }
 }

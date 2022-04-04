@@ -29,10 +29,9 @@ namespace Protesters
         public Slider PeopleBar => _peopleBar;
         public Slider PowerBar => _powerBar;
 
-        public void Initialize(int maxPeople, float maxPower, Vector3 position, RevolutionBar revolutionBar, MitingSquare square)
+        public void Initialize(int maxPeople, float maxPower, RevolutionBar revolutionBar, MitingSquare square)
         {
             _miting.Initialize(revolutionBar, square);
-            _transform.position = Camera.main.WorldToScreenPoint(position);
             _peopleBar.maxValue = maxPeople;
             _peopleBar.value = maxPeople;
             _powerBar.maxValue = maxPower;

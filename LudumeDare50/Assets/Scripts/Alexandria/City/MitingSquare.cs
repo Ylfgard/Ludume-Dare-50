@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using Protesters;
 using Police;
 
@@ -12,8 +13,11 @@ namespace City
         public event EventHappend MitingEnded;
         public event SendMiting MitingSpawned;
         public event SendMiting MitingDespawned;
+        [SerializeField]
+        private Transform _HUD;
         private Miting _miting;
 
+        public Transform HUD => _HUD;
         public Miting Miting => _miting;
 
         protected override void OnTriggerEnter(Collider other)
@@ -46,6 +50,7 @@ namespace City
         public void StartMiting(ProtestWarning protest)
         {
             _miting = protest.Miting;
+            _miting.transform.SetParent(_HUD);
             protest.ProtestEnded += EndMiting;
             CheckForResistence();
             MitingStarted?.Invoke();

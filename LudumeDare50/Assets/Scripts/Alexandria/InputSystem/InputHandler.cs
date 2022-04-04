@@ -6,7 +6,6 @@ namespace InputSystem
     public class InputHandler : MonoBehaviour
     {
         private AvtozakBehavior _selectedAvtozak;
-        private Vector3 _targetPoint;
 
         public void SelectUnit(RaycastHit hit)
         {
@@ -22,16 +21,9 @@ namespace InputSystem
 
         public void HandleInput(RaycastHit hit)
         {
-            _targetPoint = hit.point;
-            if(_selectedAvtozak == null) return;
-            _selectedAvtozak.MoveCommand(_targetPoint, hit.collider.gameObject);
-        }
-        
-        private void OnDrawGizmos()
-        {
-            if(_targetPoint == Vector3.zero) return;
-            Gizmos.color = Color.red;
-            Gizmos.DrawSphere(_targetPoint, 0.5f); 
+            if(_selectedAvtozak != null)
+                _selectedAvtozak.MoveCommand(hit.point, hit.collider.gameObject);
+            DeselectUnit();
         }
     }
 }
