@@ -1,29 +1,50 @@
 using UnityEngine;
 using Police;
+using City;
 
 namespace InputSystem
 {
     public class InputHandler : MonoBehaviour
     {
-        private AvtozakBehavior _selectedAvtozak;
+        private GameObject _selectedObject;
 
         public void SelectUnit(RaycastHit hit)
         {
-            var avtozak = hit.collider.GetComponent<AvtozakBehavior>();
-            if (avtozak == null) return;
-            _selectedAvtozak = avtozak;
+            if(_selectedObject != null)
+            {
+                var avtozak = _selectedObject.GetComponent<AvtozakBehavior>();
+                if(avtozak != null)
+                {
+                    var policeStation = hit.collider.GetComponent<PoliceStation>();
+                    if(policeStation != null)
+                    {
+                    
+                        
+                    }
+                }
+            }
+            _selectedObject = hit.collider.gameObject;
         }
 
-        public void DeselectUnit()
-        { 
-            _selectedAvtozak = null;
+        public void DeselectObject()
+        {
+            _selectedObject = null;
         }
 
         public void HandleInput(RaycastHit hit)
         {
-            if(_selectedAvtozak != null)
-                _selectedAvtozak.MoveCommand(hit.point, hit.collider.gameObject);
-            DeselectUnit();
+            if(_selectedObject == null) return;
+            var avtozak = _selectedObject.GetComponent<AvtozakBehavior>();
+            if(avtozak != null)
+            {
+                avtozak.MoveCommand(hit.point, hit.collider.gameObject);
+                return;
+            }
+            var policeStation = _selectedObject.GetComponent<PoliceStation>();
+            if(policeStation != null)
+            {
+                policeStation.SetArrivingPoint(hit.point, hit.collider.gameObject);
+            }
         }
     }
 }

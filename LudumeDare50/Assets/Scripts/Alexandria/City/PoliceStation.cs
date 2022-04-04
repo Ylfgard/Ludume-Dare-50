@@ -11,7 +11,20 @@ namespace City
         [SerializeField] private Transform _arrivingPoint;
         public event SendAvtozak AvtozakSpawned;
         private bool _isTriggeredEvent;
+        private GameObject _arrivingSquare;
 
+        public Transform ArrivingPoint => _arrivingPoint;
+
+        private void Start()
+        {
+            _arrivingSquare = this.gameObject;    
+        }
+
+        public void SetArrivingPoint(Vector3 position, GameObject arrivingSquare)
+        {
+            _arrivingPoint.position = position;
+            _arrivingSquare = arrivingSquare;
+        }
 
         public void SpawnAvtozak()
         {
@@ -20,11 +33,11 @@ namespace City
                 GameObject spawnedAvtozak = Instantiate(_avtozakPrefab, _spawnPoint);
                 AvtozakBehavior avtozakBehaviour = GetAvtozakBehavior(spawnedAvtozak);
                 avtozakBehaviour.Initialize(this);
-                avtozakBehaviour.MoveCommand(_arrivingPoint.position, this.gameObject);
+                avtozakBehaviour.MoveCommand(_arrivingPoint.position, _arrivingSquare);
                 DecreaseMoney(avtozakBehaviour);
                 if (_isTriggeredEvent) return;
                 _isTriggeredEvent = true;
-                AvtozakSpawned?.Invoke(GetAvtozakBehavior(spawnedAvtozak));
+                AvtozakSpawned?.Invoke(avtozakBehaviour);
             }
         }
 
