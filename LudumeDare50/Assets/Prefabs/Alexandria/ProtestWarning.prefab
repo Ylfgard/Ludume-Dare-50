@@ -981,7 +981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _protestWarning: {fileID: 2888299126610072234}
-  _revolutionPeriod: 1
+  _revolutionPeriod: 5
   _resistPeriod: 4
 --- !u!114 &8774459941710723197
 MonoBehaviour:
