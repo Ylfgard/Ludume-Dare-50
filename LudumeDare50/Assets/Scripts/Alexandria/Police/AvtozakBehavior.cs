@@ -11,9 +11,12 @@ namespace Police
 
     public class AvtozakBehavior : MonoBehaviour
     {
+        public event SendAvtozak LeavedPoliceStation;
         public event SendAvtozak Destructed;
         [SerializeField]
         private AvtozakMovement _movement;
+        [SerializeField]
+        private PoliceStation _onPoliceStation;
         [SerializeField]
         private Slider _healthBar;
         [SerializeField]
@@ -22,6 +25,7 @@ namespace Police
         private TextMeshProUGUI _count;
         [SerializeField]
         private GameObject _outline;
+
         [Header ("Specifications")]
         [SerializeField]
         private int _health;
@@ -30,13 +34,14 @@ namespace Police
         [SerializeField]
         private int _capacity;
         [SerializeField]
+        private float _arrestTime;
+        [SerializeField]
         private float _arrestDelay;
         [SerializeField]
         private float _unloadingDelay;
         [SerializeField]
         private int _avtozakPrice;
         private Miting _onMiting;
-        private PoliceStation _onPoliceStation;
 
         public int Health => _health;
         public float Speed => _speed;
@@ -48,7 +53,9 @@ namespace Police
 
         private void Awake()
         {
+            if(_arrestTime == 0) _arrestTime = 1;
             Upgrade(_health, _speed, _capacity, _arrestDelay);
+            _outline.SetActive(false);
             _healthBar.value = _health;
             _occupancyBar.value = 0;
             _count.text = "0";
@@ -97,25 +104,11 @@ namespace Police
             _onMiting = null;
         }
 
-        public void TakeDamage(float damage)
-        {
-            _healthBar.value -= damage;
-            if(_healthBar.value <= 0) Destruction();
-        }
-
-        public void Destruction()
-        {
-            if(_movement.OnSquare != null) 
-                _movement.OnSquare.LeaveSquare(this);
-            EndArrests();
-            Debug.Log("Avtozak " + this + " destroyed");
-            Destructed?.Invoke(this);
-            Destroy(gameObject);
-        }
-
         private IEnumerator Arrest()
         {
-            yield return new WaitForSeconds(_arrestDelay);
+            var delay = _arrestTime / (10 - _arrestDelay);
+            if(delay <= 0) delay = 0.01f;
+            yield return new WaitForSeconds(delay);
             if(_onMiting != null)
             {
                 _onMiting.ArrestPeople();
@@ -136,6 +129,7 @@ namespace Police
         private void LeavePoliceStation()
         {
             StopAllCoroutines();
+            LeavedPoliceStation?.Invoke(this);
             _onPoliceStation = null;
         }
 
@@ -160,6 +154,23 @@ namespace Police
                     }
                 }
             }
+        }
+
+        public void TakeDamage(float damage)
+        {
+            _healthBar.value -= damage;
+            if(_healthBar.value <= 0) Destruction();
+        }
+
+        public void Destruction()
+        {
+            if(_onPoliceStation) LeavedPoliceStation?.Invoke(this);
+            if(_movement.OnSquare != null) 
+                _movement.OnSquare.LeaveSquare(this);
+            EndArrests();
+            Debug.Log("Avtozak " + this + " destroyed");
+            Destructed?.Invoke(this);
+            Destroy(gameObject);
         }
     }
 }

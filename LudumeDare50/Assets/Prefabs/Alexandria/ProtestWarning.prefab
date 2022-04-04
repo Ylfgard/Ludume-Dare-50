@@ -962,6 +962,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transform: {fileID: 9080778688204869498}
   _miting: {fileID: 1158608777817199648}
+  _spawnMiting: event:/crowd
+  _endMiting: event:/miting end
   _peopleBar: {fileID: 9080778686893665668}
   _peopleCount: {fileID: 9080778687313773234}
   _powerBar: {fileID: 9080778686788134359}
