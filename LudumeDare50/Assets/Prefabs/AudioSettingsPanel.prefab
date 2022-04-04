@@ -1130,6 +1130,7 @@ GameObject:
   - component: {fileID: 2291627302691296351}
   - component: {fileID: 2291627302691296344}
   - component: {fileID: 2291627302691296345}
+  - component: {fileID: 695349613722342323}
   m_Layer: 5
   m_Name: ResetButton
   m_TagString: Untagged
@@ -1321,6 +1322,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &695349613722342323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2291627302691296347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d7a23ee2ee23c49bea491d3f6f6bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundPath: event:/ui button hover
 --- !u!1 &2291627302849628038
 GameObject:
   m_ObjectHideFlags: 0
@@ -1519,6 +1533,7 @@ GameObject:
   - component: {fileID: 2291627302997633982}
   - component: {fileID: 496103113301205982}
   - component: {fileID: 2291627302997633976}
+  - component: {fileID: 4364539692405077142}
   m_Layer: 5
   m_Name: GoBackButton
   m_TagString: Untagged
@@ -1663,6 +1678,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4364539692405077142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2291627302997633978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d7a23ee2ee23c49bea491d3f6f6bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundPath: event:/ui button hover
 --- !u!1 &2291627303051025990
 GameObject:
   m_ObjectHideFlags: 0
