@@ -8,19 +8,17 @@ public class GameOverHandler : MonoBehaviour
     private GameObject _gameOverWindow;
     [SerializeField] [EventRef]
     private string _loseSound;
-    private StoragesKeeper _storagesKeeper;
 
     private void Awake()
     {
-        _storagesKeeper = FindObjectOfType<StoragesKeeper>();
-        _storagesKeeper.RevolutionBar.RevolutionLevelMaximum += GameOver;
+        FindObjectOfType<StoragesKeeper>().RevolutionBar.RevolutionLevelMaximum += GameOver;
         _gameOverWindow.SetActive(false);
-        _storagesKeeper.PauseSystem.ResumeClicked();
+        Time.timeScale = 1;
     }
 
     private void GameOver()
     {
-        _storagesKeeper.PauseSystem.PauseClicked();
+        Time.timeScale = 0;
         RuntimeManager.PlayOneShot(_loseSound);
         _gameOverWindow.SetActive(true);
     }

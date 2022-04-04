@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using FMODUnity;
 using City;
 using Protesters;
 using TMPro;
@@ -28,6 +29,8 @@ namespace Police
         private GameObject _outline;
         [SerializeField]
         private GameObject _HUD;
+        [SerializeField] [EventRef]
+        private string _destructionSound;
 
         [Header ("Specifications")]
         [SerializeField]
@@ -181,6 +184,7 @@ namespace Police
 
         public void Destruction()
         {
+            RuntimeManager.PlayOneShot(_destructionSound);
             if(_onPoliceStation) LeavedPoliceStation?.Invoke(this);
             if(_movement.OnSquare != null) 
                 _movement.OnSquare.LeaveSquare(this);

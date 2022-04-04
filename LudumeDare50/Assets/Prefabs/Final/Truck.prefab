@@ -402,6 +402,7 @@ MonoBehaviour:
   _count: {fileID: 6326344010969587194}
   _outline: {fileID: 8063556937887131277}
   _HUD: {fileID: 4249661203471588366}
+  _destructionSound: event:/car crash
   _health: 5
   _speed: 1
   _capacity: 3
