@@ -30,6 +30,12 @@ public class TutorialSystem : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
             GoOnNextSentence();
+
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            _tutorialPanel.SetActive(false);
+            this.enabled = false;
+        }
     }
 
     IEnumerator Type()
@@ -53,7 +59,9 @@ public class TutorialSystem : MonoBehaviour
                 StartCoroutine(Type());
             }
             else
+            {
                 _tutorialPanel.SetActive(false);
+            }
         }
     }
 }
