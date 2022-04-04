@@ -57,19 +57,24 @@ namespace Police
             _movement.ArrivedOnPoliceStation += OnPoliceStation;
             _movement.LeavedPoliceStation += LeavePoliceStation;
         }
+        
         public void Initialize(Square square)
         {
             _movement.Initialize(Speed, this, square);
         }
+
         public void Upgrade(int health, float speed, int capacity, float arrestDelay)
         {
+            _healthBar.maxValue = health;
+            var healthChange = health - _health;
             _health = health;
-            _healthBar.maxValue = _health;
             _capacity = capacity;
             _occupancyBar.maxValue = _capacity;
+            if(_occupancyBar.value > _capacity) _occupancyBar.value = _capacity;
             _speed = speed;
             _movement.Initialize(_speed, this, _movement.OnSquare);
             _arrestDelay = arrestDelay;
+            TakeDamage(-healthChange);
         }
         
         public void MoveCommand(Vector3 point, GameObject target)
@@ -98,7 +103,7 @@ namespace Police
             if(_healthBar.value <= 0) Destruction();
         }
 
-        private void Destruction()
+        public void Destruction()
         {
             if(_movement.OnSquare != null) 
                 _movement.OnSquare.LeaveSquare(this);
@@ -139,6 +144,7 @@ namespace Police
             {
                 var policeStation = _movement.OnSquare.GetComponent<PoliceStation>();
                 if(policeStation != null)
+                {
                     if(_occupancyBar.value > 1)
                     {
                         _occupancyBar.value--;
@@ -150,6 +156,7 @@ namespace Police
                         _occupancyBar.value--;
                         _count.text = _occupancyBar.value.ToString();
                     }
+                }
             }
         }
     }
