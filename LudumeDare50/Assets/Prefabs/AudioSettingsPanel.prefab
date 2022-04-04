@@ -260,7 +260,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0cc5de4ffbc4f4597bd3f719c6d3fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slider: {fileID: 2291627301385234064}
   VcaName: Music
 --- !u!1 &2291627301588773711
 GameObject:
@@ -612,8 +611,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0cc5de4ffbc4f4597bd3f719c6d3fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _slider: {fileID: 2291627301801200046}
-  VcaName: SFX
+  VcaName: fx
 --- !u!1 &2291627301952649291
 GameObject:
   m_ObjectHideFlags: 0

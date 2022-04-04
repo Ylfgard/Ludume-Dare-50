@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f810ea20ed0d41e4babd1631c8b182f8, type: 3}
-  m_Name: MoneyBoost
+  m_Script: {fileID: 11500000, guid: a390cf847035b25498f87ad5ee40853a, type: 3}
+  m_Name: "\u0423\u0431\u0440\u0430\u0442\u044C50%\u041C\u0438\u0442\u0438\u043D\u0433"
   m_EditorClassIdentifier: 
-  _name: Money Boost
-  _description: Increases the money income by 50% within 30 seconds
-  _effects:
-  - {fileID: 11400000, guid: 8e87b6618363f2f45827a45c3eea88dc, type: 2}
+  _scope: 2
+  _duration: 0
+  _delay: 0
+  _type: 0
+  _inPercent: 1
+  _value: 0.5

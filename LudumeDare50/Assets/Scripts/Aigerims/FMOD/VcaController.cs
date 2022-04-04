@@ -14,4 +14,15 @@ public class VcaController : MonoBehaviour
         _vcaController = FMODUnity.RuntimeManager.GetVCA("vca:/" + VcaName);
         _slider = GetComponent<Slider>();
     }
+
+    public void SetVolume(float volume)
+    {
+        _vcaController.setVolume(volume);
+    }
+
+    public void ResetVolume()
+    {
+        _vcaController.setVolume(1f);
+        _slider.value = 1f;
+    }
 }
