@@ -4,8 +4,11 @@ using Laws.Managers;
 
 namespace Laws
 {
+    public delegate void SendLaw(Law law);
+
     public class Law : MonoBehaviour
     {
+        public event SendLaw LawApplyed;
         [SerializeField]
         private TextMeshProUGUI _name;
         [SerializeField]
@@ -16,6 +19,7 @@ namespace Laws
         public void ActivateLaw()
         {
             _lawmaker.AdoptLaw(_content);
+            LawApplyed?.Invoke(this);
             Destroy(gameObject);
         }
 
