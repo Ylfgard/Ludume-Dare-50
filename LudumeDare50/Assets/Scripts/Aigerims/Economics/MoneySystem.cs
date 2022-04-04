@@ -7,12 +7,10 @@ public class MoneySystem : MonoBehaviour
     [SerializeField] private float _timer;
     [SerializeField] private float _currentTime;
     [SerializeField] private int _income;
-    [SerializeField] [EventRef] private string _moneySound;
 
     public int MoneyAmount;
 
     public int Income => _income;
-    public string MoneySound => _moneySound;
 
     #region Singleton Init
     private static MoneySystem _instance;

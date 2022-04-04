@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using FMODUnity;
 
 public class PauseSystem : MonoBehaviour
 {
@@ -32,13 +31,14 @@ public class PauseSystem : MonoBehaviour
     {
         _isPaused = false;
         _pausePanel.SetActive(_isPaused);
+        FMODSingleton.Instance.PlayButtonSound();
         Time.timeScale = 1f;
     }
 
 
     public void GoToMainMenu()
     {
-        //PlayerPrefs.SetInt("NewGameStarted", 1);
+        FMODSingleton.Instance.PlayButtonSound();
         SceneManager.LoadScene("Menu");
     }
 }

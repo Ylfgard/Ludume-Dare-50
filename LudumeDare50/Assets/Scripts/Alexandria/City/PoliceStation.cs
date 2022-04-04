@@ -51,7 +51,7 @@ namespace City
         private void DecreaseMoney(AvtozakBehavior avtozakBehavior)
         {
             MoneySystem.Instance.DecreaseMoneyAmount(avtozakBehavior.AvtozakPrice);
-            RuntimeManager.PlayOneShot(MoneySystem.Instance.MoneySound);
+            RuntimeManager.PlayOneShot(FMODSingleton.Instance.moneySound);
         }
     }
 }
