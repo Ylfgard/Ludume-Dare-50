@@ -4,6 +4,7 @@ using System.Collections;
 using City;
 using Protesters;
 using TMPro;
+using GameDataKeepers;
 
 namespace Police
 {
@@ -25,6 +26,8 @@ namespace Police
         private TextMeshProUGUI _count;
         [SerializeField]
         private GameObject _outline;
+        [SerializeField]
+        private GameObject _HUD;
 
         [Header ("Specifications")]
         [SerializeField]
@@ -41,18 +44,22 @@ namespace Police
         private float _unloadingDelay;
         [SerializeField]
         private int _avtozakPrice;
+        [SerializeField]
+        private int _rewardForArrested;
         private Miting _onMiting;
+        private StoragesKeeper _storagesKeeper;
 
         public int Health => _health;
         public float Speed => _speed;
         public int Capacity => _capacity;
         public float ArrestDelay => _arrestDelay;
         public int AvtozakPrice => _avtozakPrice;
-        public GameObject Outline => _outline;
         public PoliceStation OnPoliceStation => _onPoliceStation;
 
         private void Awake()
         {
+            ChangeOutlineState(false);
+            _storagesKeeper = FindObjectOfType<StoragesKeeper>();
             if(_arrestTime == 0) _arrestTime = 1;
             Upgrade(_health, _speed, _capacity, _arrestDelay);
             _outline.SetActive(false);
@@ -64,6 +71,12 @@ namespace Police
             _movement.ArrivedOnPoliceStation += StayPoliceStation;
             _movement.LeavedPoliceStation += LeavePoliceStation;
             Initialize(_onPoliceStation);
+        }
+
+        public void ChangeOutlineState(bool state)
+        {
+            _HUD.SetActive(state);
+            _outline.SetActive(state);
         }
         
         public void Initialize(Square square)
@@ -108,7 +121,6 @@ namespace Police
 
         private IEnumerator Arrest()
         {
-            
             var delay = _arrestTime * (1 - _arrestDelay / 10);
             if(delay <= 0) delay = 0.01f;
             yield return new WaitForSeconds(delay);
@@ -147,12 +159,14 @@ namespace Police
                     if(_occupancyBar.value > 1)
                     {
                         _occupancyBar.value--;
+                        _storagesKeeper.MoneySystem.ChangeMoneyCount(_rewardForArrested);
                         _count.text = _occupancyBar.value.ToString();
                         StartCoroutine(Unloading());
                     } 
                     else if(_occupancyBar.value > 0)
                     {
                         _occupancyBar.value--;
+                        _storagesKeeper.MoneySystem.ChangeMoneyCount(_rewardForArrested);
                         _count.text = _occupancyBar.value.ToString();
                     }
                 }

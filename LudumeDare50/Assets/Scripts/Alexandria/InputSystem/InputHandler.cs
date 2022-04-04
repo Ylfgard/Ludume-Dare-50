@@ -48,7 +48,7 @@ namespace InputSystem
             var avtozak = _selectedObject.GetComponent<AvtozakBehavior>();
             if(avtozak != null) 
             {
-                avtozak.Outline.SetActive(true);
+                avtozak.ChangeOutlineState(true);
                 return;
             }
 
@@ -66,7 +66,7 @@ namespace InputSystem
             _storagesKeeper.PoliceStorage.AvtozakShop.CloseAvtozakShop();
             if(_selectedObject == null) return;
             var avtozak = _selectedObject.GetComponent<AvtozakBehavior>();
-            if(avtozak != null) avtozak.Outline.SetActive(false);
+            if(avtozak != null) avtozak.ChangeOutlineState(false);
             else _pointer.gameObject.SetActive(false);
             _selectedObject = null;
         }
