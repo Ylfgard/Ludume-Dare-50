@@ -7006,7 +7006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91608ac9321871e4c83a52b25c557333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _newGameLevel: Aigerims
+  _newGameLevel: Main
   _qualityDropdown: {fileID: 776866845}
   _fullScreenToggle: {fileID: 572417028}
   _resolutionDropdown: {fileID: 1095294186}

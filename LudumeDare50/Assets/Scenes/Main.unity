@@ -1910,6 +1910,7 @@ GameObject:
   - component: {fileID: 90398944}
   - component: {fileID: 90398943}
   - component: {fileID: 90398942}
+  - component: {fileID: 90398945}
   m_Layer: 5
   m_Name: GoMenuButton
   m_TagString: Untagged
@@ -1980,9 +1981,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1885157141}
         m_TargetAssemblyTypeName: PauseSystem, Assembly-CSharp
         m_MethodName: GoToMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 596589431}
+        m_TargetAssemblyTypeName: FMODSingleton, Assembly-CSharp
+        m_MethodName: PlayButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2089,6 +2102,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 90398940}
   m_CullTransparentMesh: 1
+--- !u!114 &90398945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90398940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d7a23ee2ee23c49bea491d3f6f6bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundPath: event:/ui button hover
 --- !u!1 &90825716
 GameObject:
   m_ObjectHideFlags: 0
@@ -4998,6 +5024,7 @@ GameObject:
   - component: {fileID: 211328679}
   - component: {fileID: 211328678}
   - component: {fileID: 211328677}
+  - component: {fileID: 211328680}
   m_Layer: 5
   m_Name: BuyButton
   m_TagString: Untagged
@@ -5092,6 +5119,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 596589431}
+        m_TargetAssemblyTypeName: FMODSingleton, Assembly-CSharp
+        m_MethodName: PlayButtonSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &211328678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5130,6 +5169,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211328675}
   m_CullTransparentMesh: 1
+--- !u!114 &211328680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211328675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d7a23ee2ee23c49bea491d3f6f6bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundPath: event:/ui button hover
 --- !u!1001 &213133592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16174,6 +16226,7 @@ GameObject:
   - component: {fileID: 481223758}
   - component: {fileID: 481223757}
   - component: {fileID: 481223756}
+  - component: {fileID: 481223759}
   m_Layer: 5
   m_Name: SoundButton
   m_TagString: Untagged
@@ -16256,10 +16309,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 569844103}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 596589431}
+        m_TargetAssemblyTypeName: FMODSingleton, Assembly-CSharp
+        m_MethodName: PlayButtonSound
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -16268,10 +16321,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 596589431}
-        m_TargetAssemblyTypeName: FMODSingleton, Assembly-CSharp
-        m_MethodName: PlayButtonSound
-        m_Mode: 1
+      - m_Target: {fileID: 569844103}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -16377,6 +16430,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 481223754}
   m_CullTransparentMesh: 1
+--- !u!114 &481223759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481223754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d7a23ee2ee23c49bea491d3f6f6bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundPath: event:/ui button hover
 --- !u!1 &485064420
 GameObject:
   m_ObjectHideFlags: 0
@@ -27796,6 +27862,7 @@ GameObject:
   - component: {fileID: 806046841}
   - component: {fileID: 806046840}
   - component: {fileID: 806046839}
+  - component: {fileID: 806046842}
   m_Layer: 5
   m_Name: PlusButton4
   m_TagString: Untagged
@@ -27890,6 +27957,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 596589431}
+        m_TargetAssemblyTypeName: FMODSingleton, Assembly-CSharp
+        m_MethodName: PlayButtonSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &806046840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27928,6 +28007,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806046837}
   m_CullTransparentMesh: 1
+--- !u!114 &806046842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 806046837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d7a23ee2ee23c49bea491d3f6f6bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundPath: event:/ui button hover
 --- !u!1001 &813089629
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31951,6 +32043,7 @@ GameObject:
   - component: {fileID: 1002288245}
   - component: {fileID: 1002288244}
   - component: {fileID: 1002288243}
+  - component: {fileID: 1002288246}
   m_Layer: 5
   m_Name: PlusButton3
   m_TagString: Untagged
@@ -32035,7 +32128,19 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1961585654}
         m_TargetAssemblyTypeName: Police.AvtozakUpgradeSystem, Assembly-CSharp
-        m_MethodName: IncreaseSpeed
+        m_MethodName: IncreaseHP
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 596589431}
+        m_TargetAssemblyTypeName: FMODSingleton, Assembly-CSharp
+        m_MethodName: PlayButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -32083,6 +32188,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002288241}
   m_CullTransparentMesh: 1
+--- !u!114 &1002288246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002288241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d7a23ee2ee23c49bea491d3f6f6bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundPath: event:/ui button hover
 --- !u!1 &1003226807
 GameObject:
   m_ObjectHideFlags: 0
@@ -34669,6 +34787,7 @@ GameObject:
   - component: {fileID: 1156408488}
   - component: {fileID: 1156408487}
   - component: {fileID: 1156408486}
+  - component: {fileID: 1156408489}
   m_Layer: 5
   m_Name: MinusButton1
   m_TagString: Untagged
@@ -34753,7 +34872,19 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1961585654}
         m_TargetAssemblyTypeName: Police.AvtozakUpgradeSystem, Assembly-CSharp
-        m_MethodName: DecreaseArrestDelay
+        m_MethodName: IncreaseHP
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 596589431}
+        m_TargetAssemblyTypeName: FMODSingleton, Assembly-CSharp
+        m_MethodName: PlayButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -34801,6 +34932,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1156408484}
   m_CullTransparentMesh: 1
+--- !u!114 &1156408489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156408484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d7a23ee2ee23c49bea491d3f6f6bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundPath: event:/ui button hover
 --- !u!1001 &1165615102
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43087,6 +43231,7 @@ GameObject:
   - component: {fileID: 1347305958}
   - component: {fileID: 1347305957}
   - component: {fileID: 1347305956}
+  - component: {fileID: 1347305959}
   m_Layer: 5
   m_Name: MinusButton3
   m_TagString: Untagged
@@ -43171,7 +43316,19 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1961585654}
         m_TargetAssemblyTypeName: Police.AvtozakUpgradeSystem, Assembly-CSharp
-        m_MethodName: DecreaseSpeed
+        m_MethodName: IncreaseHP
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 596589431}
+        m_TargetAssemblyTypeName: FMODSingleton, Assembly-CSharp
+        m_MethodName: PlayButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -43219,6 +43376,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1347305954}
   m_CullTransparentMesh: 1
+--- !u!114 &1347305959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347305954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d7a23ee2ee23c49bea491d3f6f6bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundPath: event:/ui button hover
 --- !u!1001 &1351138097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43682,7 +43852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 200132446269680474, guid: 3ba65cc68df0c4c44a8de2419e0e2d07, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 41.96
+      value: 20.17
       objectReference: {fileID: 0}
     - target: {fileID: 200132446269680474, guid: 3ba65cc68df0c4c44a8de2419e0e2d07, type: 3}
       propertyPath: m_LocalPosition.y
@@ -43690,23 +43860,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 200132446269680474, guid: 3ba65cc68df0c4c44a8de2419e0e2d07, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -20.35
+      value: -30.75
       objectReference: {fileID: 0}
     - target: {fileID: 200132446269680474, guid: 3ba65cc68df0c4c44a8de2419e0e2d07, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 200132446269680474, guid: 3ba65cc68df0c4c44a8de2419e0e2d07, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 200132446269680474, guid: 3ba65cc68df0c4c44a8de2419e0e2d07, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 200132446269680474, guid: 3ba65cc68df0c4c44a8de2419e0e2d07, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 200132446269680474, guid: 3ba65cc68df0c4c44a8de2419e0e2d07, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -43714,7 +43884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 200132446269680474, guid: 3ba65cc68df0c4c44a8de2419e0e2d07, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 200132446269680474, guid: 3ba65cc68df0c4c44a8de2419e0e2d07, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -44500,6 +44670,7 @@ GameObject:
   - component: {fileID: 1416494051}
   - component: {fileID: 1416494050}
   - component: {fileID: 1416494049}
+  - component: {fileID: 1416494052}
   m_Layer: 5
   m_Name: PlusButton2
   m_TagString: Untagged
@@ -44584,7 +44755,19 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1961585654}
         m_TargetAssemblyTypeName: Police.AvtozakUpgradeSystem, Assembly-CSharp
-        m_MethodName: IncreaseCapacity
+        m_MethodName: IncreaseHP
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 596589431}
+        m_TargetAssemblyTypeName: FMODSingleton, Assembly-CSharp
+        m_MethodName: PlayButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -44632,6 +44815,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1416494047}
   m_CullTransparentMesh: 1
+--- !u!114 &1416494052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1416494047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d7a23ee2ee23c49bea491d3f6f6bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundPath: event:/ui button hover
 --- !u!1001 &1417908438
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46797,6 +46993,7 @@ GameObject:
   - component: {fileID: 1501595843}
   - component: {fileID: 1501595842}
   - component: {fileID: 1501595841}
+  - component: {fileID: 1501595844}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -46878,6 +47075,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 596589431}
+        m_TargetAssemblyTypeName: FMODSingleton, Assembly-CSharp
+        m_MethodName: PlayButtonSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1885157141}
         m_TargetAssemblyTypeName: PauseSystem, Assembly-CSharp
@@ -46988,6 +47197,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501595839}
   m_CullTransparentMesh: 1
+--- !u!114 &1501595844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501595839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d7a23ee2ee23c49bea491d3f6f6bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundPath: event:/ui button hover
 --- !u!4 &1505070695 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7357617898001703865, guid: 786b3531dab11864ea5e1281e7ad240e, type: 3}
@@ -51352,7 +51574,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!222 &1724264131
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -57881,6 +58103,7 @@ GameObject:
   - component: {fileID: 1820493484}
   - component: {fileID: 1820493483}
   - component: {fileID: 1820493482}
+  - component: {fileID: 1820493485}
   m_Layer: 5
   m_Name: UpgradeButton
   m_TagString: Untagged
@@ -57975,6 +58198,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 596589431}
+        m_TargetAssemblyTypeName: FMODSingleton, Assembly-CSharp
+        m_MethodName: PlayButtonSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1820493483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58013,6 +58248,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820493480}
   m_CullTransparentMesh: 1
+--- !u!114 &1820493485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820493480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d7a23ee2ee23c49bea491d3f6f6bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundPath: event:/ui button hover
 --- !u!4 &1821298204 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7357617898001703865, guid: 786b3531dab11864ea5e1281e7ad240e, type: 3}
@@ -58717,6 +58965,7 @@ GameObject:
   - component: {fileID: 1860840791}
   - component: {fileID: 1860840790}
   - component: {fileID: 1860840789}
+  - component: {fileID: 1860840792}
   m_Layer: 5
   m_Name: MinusButton2
   m_TagString: Untagged
@@ -58801,7 +59050,19 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1961585654}
         m_TargetAssemblyTypeName: Police.AvtozakUpgradeSystem, Assembly-CSharp
-        m_MethodName: DecreaseCapacity
+        m_MethodName: IncreaseHP
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 596589431}
+        m_TargetAssemblyTypeName: FMODSingleton, Assembly-CSharp
+        m_MethodName: PlayButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -58849,6 +59110,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860840787}
   m_CullTransparentMesh: 1
+--- !u!114 &1860840792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860840787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d7a23ee2ee23c49bea491d3f6f6bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundPath: event:/ui button hover
 --- !u!1001 &1861036212
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61010,6 +61284,7 @@ GameObject:
   - component: {fileID: 1997484148}
   - component: {fileID: 1997484147}
   - component: {fileID: 1997484146}
+  - component: {fileID: 1997484149}
   m_Layer: 5
   m_Name: PlusButton1
   m_TagString: Untagged
@@ -61094,7 +61369,19 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1961585654}
         m_TargetAssemblyTypeName: Police.AvtozakUpgradeSystem, Assembly-CSharp
-        m_MethodName: IncreaseArrestDelay
+        m_MethodName: IncreaseHP
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 596589431}
+        m_TargetAssemblyTypeName: FMODSingleton, Assembly-CSharp
+        m_MethodName: PlayButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -61142,6 +61429,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997484144}
   m_CullTransparentMesh: 1
+--- !u!114 &1997484149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997484144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d7a23ee2ee23c49bea491d3f6f6bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundPath: event:/ui button hover
 --- !u!1001 &1998295987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62558,6 +62858,7 @@ GameObject:
   - component: {fileID: 2072783527}
   - component: {fileID: 2072783526}
   - component: {fileID: 2072783525}
+  - component: {fileID: 2072783528}
   m_Layer: 5
   m_Name: GoMenuButton
   m_TagString: Untagged
@@ -62631,6 +62932,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1885157141}
         m_TargetAssemblyTypeName: PauseSystem, Assembly-CSharp
         m_MethodName: GoToMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 596589431}
+        m_TargetAssemblyTypeName: FMODSingleton, Assembly-CSharp
+        m_MethodName: PlayButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -62737,6 +63050,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2072783523}
   m_CullTransparentMesh: 1
+--- !u!114 &2072783528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072783523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d7a23ee2ee23c49bea491d3f6f6bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundPath: event:/ui button hover
 --- !u!4 &2073532375 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1814957823191739449, guid: 936ff327f0acf6d45adbb9c2e39437e5, type: 3}
@@ -63257,6 +63583,7 @@ GameObject:
   - component: {fileID: 2096691920}
   - component: {fileID: 2096691919}
   - component: {fileID: 2096691918}
+  - component: {fileID: 2096691921}
   m_Layer: 5
   m_Name: MinusButton4
   m_TagString: Untagged
@@ -63341,7 +63668,19 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1961585654}
         m_TargetAssemblyTypeName: Police.AvtozakUpgradeSystem, Assembly-CSharp
-        m_MethodName: DecreaseHP
+        m_MethodName: IncreaseHP
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 596589431}
+        m_TargetAssemblyTypeName: FMODSingleton, Assembly-CSharp
+        m_MethodName: PlayButtonSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -63389,6 +63728,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2096691916}
   m_CullTransparentMesh: 1
+--- !u!114 &2096691921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096691916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d7a23ee2ee23c49bea491d3f6f6bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundPath: event:/ui button hover
 --- !u!1001 &2099054884
 PrefabInstance:
   m_ObjectHideFlags: 0
