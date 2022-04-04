@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.124882735, g: 0.2348823, b: 0.35070258, a: 1}
+  m_IndirectSpecularColor: {r: 0.124882735, g: 0.23488235, b: 0.35070258, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -34872,7 +34872,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1961585654}
         m_TargetAssemblyTypeName: Police.AvtozakUpgradeSystem, Assembly-CSharp
-        m_MethodName: DecreaseHP
+        m_MethodName: DecreaseArrestDelay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -60827,6 +60827,10 @@ MonoBehaviour:
   _capacityUpgradeValue: 0
   _speedUpgradeValue: 0
   _healthUpgradeValue: 0
+  _maxArrestDelay: 0
+  _maxCapacity: 0
+  _maxSpeed: 0
+  _maxHealth: 0
   _arrestDelayPrice: 100
   _capacityPrice: 200
   _speedPrice: 50

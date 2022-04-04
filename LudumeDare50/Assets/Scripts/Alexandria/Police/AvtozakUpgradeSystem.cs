@@ -30,6 +30,12 @@ namespace Police
         [SerializeField] private int _speedUpgradeValue;
         [SerializeField] private int _healthUpgradeValue;
 
+        [Header("Values Limit")]
+        [SerializeField] private int _maxArrestDelay;
+        [SerializeField] private int _maxCapacity;
+        [SerializeField] private int _maxSpeed;
+        [SerializeField] private int _maxHealth;
+
         [Header("Prices")]
         [SerializeField] private int _arrestDelayPrice;
         [SerializeField] private int _capacityPrice;
@@ -59,11 +65,14 @@ namespace Police
 
         public void IncreaseArrestDelay()
         {
-            _arrestDelay++;
-            _totalPrice += _arrestDelayPrice;
-            _totalPriceText.text = _totalPrice.ToString();
-            _arrestDelayUpgradeValue++;
-            _arrestDelayText.text = _arrestDelay.ToString();
+            if(_arrestDelay < _maxArrestDelay)
+            {
+                _arrestDelay++;
+                _totalPrice += _arrestDelayPrice;
+                _totalPriceText.text = _totalPrice.ToString();
+                _arrestDelayUpgradeValue++;
+                _arrestDelayText.text = _arrestDelay.ToString();
+            }
         }
 
         public void DecreaseArrestDelay()
@@ -86,11 +95,14 @@ namespace Police
 
         public void IncreaseCapacity()
         {
-            _capacity++;
-            _capacityUpgradeValue++;
-            _totalPrice += _capacityPrice;
-            _totalPriceText.text = _totalPrice.ToString();
-            _capacityText.text = _capacity.ToString();
+            if(_capacity < _maxCapacity)
+            {
+                _capacity++;
+                _capacityUpgradeValue++;
+                _totalPrice += _capacityPrice;
+                _totalPriceText.text = _totalPrice.ToString();
+                _capacityText.text = _capacity.ToString();
+            }
         }
 
         public void DecreaseCapacity()
@@ -113,11 +125,14 @@ namespace Police
 
         public void IncreaseSpeed()
         {
-            _speed++;
-            _speedUpgradeValue++;
-            _totalPrice += _speedPrice;
-            _totalPriceText.text = _totalPrice.ToString();
-            _speedText.text = _speed.ToString();
+            if(_speed < _maxSpeed)
+            {
+                _speed++;
+                _speedUpgradeValue++;
+                _totalPrice += _speedPrice;
+                _totalPriceText.text = _totalPrice.ToString();
+                _speedText.text = _speed.ToString();
+            }
         }
 
         public void DecreaseSpeed()
@@ -140,11 +155,14 @@ namespace Police
 
         public void IncreaseHP()
         {
-            _health++;
-            _healthUpgradeValue++;
-            _totalPrice += _healthPrice;
-            _totalPriceText.text = _totalPrice.ToString();
-            _healthText.text = _health.ToString();
+            if(_health < _maxHealth)
+            {
+                _health++;
+                _healthUpgradeValue++;
+                _totalPrice += _healthPrice;
+                _totalPriceText.text = _totalPrice.ToString();
+                _healthText.text = _health.ToString();
+            }
         }
 
         public void DecreaseHP()
