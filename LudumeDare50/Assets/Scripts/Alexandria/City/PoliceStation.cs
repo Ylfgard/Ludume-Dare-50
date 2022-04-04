@@ -32,7 +32,7 @@ namespace City
         {
             if (MoneySystem.Instance.MoneyAmount >= _avtozakPrefab.GetComponent<AvtozakBehavior>().AvtozakPrice)
             {
-                GameObject spawnedAvtozak = Instantiate(_avtozakPrefab, _spawnPoint);
+                GameObject spawnedAvtozak = Instantiate(_avtozakPrefab, _spawnPoint.position, Quaternion.identity);
                 AvtozakBehavior avtozakBehaviour = GetAvtozakBehavior(spawnedAvtozak);
                 avtozakBehaviour.Initialize(this);
                 avtozakBehaviour.MoveCommand(_arrivingPoint.position, _arrivingSquare);

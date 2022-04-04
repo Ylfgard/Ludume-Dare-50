@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using FMODUnity;
 
 namespace Protesters
 {
@@ -15,6 +16,9 @@ namespace Protesters
         private float _passiveMoodChanging;
         [SerializeField]
         private float _passiveMoodChangingPeriod;
+        [SerializeField] [EventRef]
+        private string _crowdSound;
+        private FMOD.Studio.EventInstance instance;
         private float _moodСhanging;
 
         public float Level => _bar.value;
@@ -23,6 +27,8 @@ namespace Protesters
 
         private void Awake()
         {
+            instance = RuntimeManager.CreateInstance(_crowdSound);
+            instance.start();
             _passiveMoodChangingPeriod *= 100;    
         }
 
@@ -53,11 +59,14 @@ namespace Protesters
             _bar.value += value;
             if(_bar.value >= _bar.maxValue)
             {
+                instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                instance.release();
                 RevolutionLevelMaximum?.Invoke();
                 return;
             }
             if(_bar.value <= 0) _bar.value = 0;
             if(oldValue != Mathf.FloorToInt(_bar.value)) RevolutionLevelChanged?.Invoke(_bar.value);
+            instance.setParameterByName("time", _bar.value/_bar.maxValue);
         }
     }
 }
