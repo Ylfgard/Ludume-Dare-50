@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
-using FMOD;
 using FMODUnity;
 
 public class MenuSystem: MonoBehaviour
@@ -18,6 +17,8 @@ public class MenuSystem: MonoBehaviour
     [Header("Resolution Dropdowns")]
     [SerializeField] private TMP_Dropdown _resolutionDropdown;
     private Resolution[] _resolutions;
+
+    [SerializeField] [EventRef] private string _buttonPushSound;
 
     //[Header("Volume Settings")]
     //private FMOD.Studio.VCA _vcaController;
@@ -99,6 +100,10 @@ public class MenuSystem: MonoBehaviour
         _resolutionDropdown.value = _resolutions.Length;
     }
 
+    public void PlayButtonPushSound()
+    {
+        RuntimeManager.PlayOneShot(_buttonPushSound);
+    }
     public void SetVolume(float volume)
     {
         //_vcaController.setVolume(volume);

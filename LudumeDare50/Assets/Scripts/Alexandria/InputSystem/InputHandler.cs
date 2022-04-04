@@ -10,12 +10,12 @@ namespace InputSystem
         public void SelectUnit(RaycastHit hit)
         {
             var avtozak = hit.collider.GetComponent<AvtozakBehavior>();
-            if(avtozak == null) return;
+            if (avtozak == null) return;
             _selectedAvtozak = avtozak;
         }
 
         public void DeselectUnit()
-        {
+        { 
             _selectedAvtozak = null;
         }
 

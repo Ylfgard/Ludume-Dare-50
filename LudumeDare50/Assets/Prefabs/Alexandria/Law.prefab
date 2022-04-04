@@ -65,20 +65,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0414\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442 30% \u043A \u0447\u0438\u0441\u043B\u0435\u043D\u043D\u043E\u0441\u0442\u0438
-    \u0438\u043C\u0435\u044E\u0449\u0438\u0445\u0441\u044F \u043C\u0438\u0442\u0438\u043D\u0433\u043E\u0432,
-    \u0434\u043E\u0431\u0430\u0432\u043B\u044F\u0435\u0442 15% \u043A \u0437\u0430\u043F\u0430\u0441\u0443
-    \u0434\u0435\u043D\u044F\u043A"
+  m_text: Adds 30% to the number of available rallies, adds 15% to the stock of money
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4373dd94988a6624789881769b0b0a43, type: 2}
+  m_sharedMaterial: {fileID: 1364658528736233993, guid: 4373dd94988a6624789881769b0b0a43, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279769112
-  m_fontColor: {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -95,7 +92,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.6
+  m_fontSize: 24
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -206,8 +203,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: eb4f80a7a48cc2e40947a9d8d7bd68c0, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -286,7 +283,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: {fileID: 8745716394950924517}
   _description: {fileID: 8745716393144981707}
-  _test: {fileID: 11400000, guid: 99106d1c26dfff54b98c44da1f9bde9a, type: 2}
 --- !u!1 &8745716394950924539
 GameObject:
   m_ObjectHideFlags: 0
@@ -352,17 +348,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0417\u0430\u043A\u043E\u043D \u043D\u0430 \u0432\u043E\u0437\u0434\u0443\u0445"
+  m_text: Law
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4373dd94988a6624789881769b0b0a43, type: 2}
+  m_sharedMaterial: {fileID: 1364658528736233993, guid: 4373dd94988a6624789881769b0b0a43, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190454
-  m_fontColor: {r: 0.46226418, g: 0.0038857493, b: 0, a: 1}
+    rgba: 4285923561
+  m_fontColor: {r: 0.9150943, g: 0, b: 0.46204856, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -379,7 +375,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23.85
+  m_fontSize: 21.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
