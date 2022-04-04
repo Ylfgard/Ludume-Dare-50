@@ -63,10 +63,12 @@ namespace Police
             _movement.LeavedMiting += EndArrests;
             _movement.ArrivedOnPoliceStation += StayPoliceStation;
             _movement.LeavedPoliceStation += LeavePoliceStation;
+            Initialize(_onPoliceStation);
         }
         
         public void Initialize(Square square)
         {
+            Debug.Log(square);
             _movement.Initialize(Speed, this, square);
         }
 
@@ -106,7 +108,8 @@ namespace Police
 
         private IEnumerator Arrest()
         {
-            var delay = _arrestTime / (10 - _arrestDelay);
+            
+            var delay = _arrestTime * (1 - _arrestDelay / 10);
             if(delay <= 0) delay = 0.01f;
             yield return new WaitForSeconds(delay);
             if(_onMiting != null)

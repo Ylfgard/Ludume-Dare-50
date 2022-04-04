@@ -31,6 +31,9 @@ namespace Police
             _behavior = behavior;
             _agent.speed = speed;
             _onSquare = square;
+            if(square == null) return;
+            square.EnteredSquare += ArrivedOnSquare;
+            ArrivedOnSquare(gameObject.GetComponent<Collider>(), square);
         }
 
         public void MoveToPoint(Vector3 point)
