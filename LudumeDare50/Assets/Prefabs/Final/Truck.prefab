@@ -404,14 +404,14 @@ MonoBehaviour:
   _outline: {fileID: 8063556937887131277}
   _HUD: {fileID: 4249661203471588366}
   _destructionSound: event:/car crash
-  _health: 5
-  _speed: 1
-  _capacity: 3
+  _health: 7
+  _speed: 2
+  _capacity: 5
   _arrestTime: 3
   _arrestDelay: 0
   _unloadingDelay: 1
-  _avtozakPrice: 500
-  _rewardForArrested: 50
+  _avtozakPrice: 5000
+  _rewardForArrested: 150
 --- !u!114 &4642176295439433289
 MonoBehaviour:
   m_ObjectHideFlags: 0
