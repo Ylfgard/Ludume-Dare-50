@@ -173,18 +173,8 @@ namespace Police
                 MoneySystem.Instance.DecreaseMoneyAmount(_totalPrice);
                 RuntimeManager.PlayOneShot(MoneySystem.Instance.MoneySound);
                 _behaviour.Upgrade(_behaviour.Health + _healthUpgradeValue, _behaviour.Speed + _speedUpgradeValue, _behaviour.Capacity + _capacityUpgradeValue, _behaviour.ArrestDelay + _arrestDelayUpgradeValue);
-                ResetAll();
+                EndUpgrade();
             }
-        }
-
-        private void ResetAll()
-        {
-            _arrestDelayUpgradeValue = 0;
-            _capacityUpgradeValue = 0;
-            _speedUpgradeValue = 0;
-            _healthUpgradeValue = 0;
-            _totalPrice = 0;
-            _totalPriceText.text = _totalPrice.ToString();
         }
 
         public void StartUpgrade(AvtozakBehavior behavior)
