@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Money Boost
   _description: Increases the money income by 50% within 30 seconds
-  _effects: []
+  _effects:
+  - {fileID: 11400000, guid: 8e87b6618363f2f45827a45c3eea88dc, type: 2}

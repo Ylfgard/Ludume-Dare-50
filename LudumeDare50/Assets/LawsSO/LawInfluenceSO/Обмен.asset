@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: "\u041E\u0431\u043C\u0435\u043D(\u0434\u0435\u043D\u044C\u0433\u0438-\u043C\u0438\u0442\u0438\u043D\u0433\u0438)"
   _description: Adds 30% to the amount of meetings, adds 15% to the stock of money
-  _effects: []
+  _effects:
+  - {fileID: 11400000, guid: c3bea5e8164ce1f47a0a42e06712f448, type: 2}
+  - {fileID: 11400000, guid: 8f3597160d1ddfe43b184d83f6e9e7f7, type: 2}
