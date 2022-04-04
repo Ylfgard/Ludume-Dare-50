@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using FMODUnity;
 using City;
 
 namespace Protesters
@@ -14,12 +15,20 @@ namespace Protesters
         private RectTransform _transform;
         [SerializeField]
         private Miting _miting;
+
+        [Header ("Sound paths")]
+        [SerializeField] [EventRef]
+        private string _spawnMiting;
+        [SerializeField] [EventRef]
+        private string _endMiting;
+
         [Header ("People")]
         [SerializeField]
         private Slider _peopleBar;
         [SerializeField]
         private TextMeshProUGUI _peopleCount;
         [Header ("Power")]
+
         [SerializeField]
         private Slider _powerBar;
         [SerializeField]
@@ -37,11 +46,13 @@ namespace Protesters
             _powerBar.maxValue = maxPower;
             _powerBar.value = maxPower;
             ShowCount();
+            RuntimeManager.PlayOneShot(_spawnMiting);
         }
         
         public void EndProtest()
         {
             ProtestEnded?.Invoke();
+            RuntimeManager.PlayOneShot(_endMiting);
             Destroy(gameObject);
             return;
         }

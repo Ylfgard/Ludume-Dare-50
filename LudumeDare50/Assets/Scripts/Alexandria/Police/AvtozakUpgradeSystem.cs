@@ -189,6 +189,13 @@ namespace Police
             _behaviour = null;
             _upgradeWindow.SetActive(false);
         }
+
+        public void EndUpgrade(AvtozakBehavior avtozak)
+        {
+            _behaviour = null;
+            avtozak.LeavedPoliceStation -= EndUpgrade;
+            _upgradeWindow.SetActive(false);
+        }
     }
 }
 

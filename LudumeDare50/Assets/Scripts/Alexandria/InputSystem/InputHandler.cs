@@ -15,30 +15,31 @@ namespace InputSystem
         private void Start()
         {
             _storagesKeeper = FindObjectOfType<StoragesKeeper>();
+            _pointer.gameObject.SetActive(false);
             DeselectObject();
         }
 
         public void SelectUnit(RaycastHit hit)
         {
+            var policeStation = hit.collider.gameObject.GetComponent<PoliceStation>();
             if(_selectedObject != null)
             {
                 var avtozak = _selectedObject.GetComponent<AvtozakBehavior>();
-                if(avtozak != null)
+                if(avtozak != null && policeStation != null)
                 {
-                    var policeStation = hit.collider.GetComponent<PoliceStation>();
-                    if(policeStation != null)
+                    if(avtozak.OnPoliceStation == policeStation)
                     {
-                        if(avtozak.OnPoliceStation == policeStation)
-                        {
-                            _pointer.position = policeStation.PointerPoint.position;
-                            _pointer.gameObject.SetActive(true);
-                            _storagesKeeper.PoliceStorage.AvtozakUpgrade.StartUpgrade(avtozak);
-                            return;
-                        }
+                        _storagesKeeper.PoliceStorage.AvtozakUpgrade.StartUpgrade(avtozak);
+                        avtozak.LeavedPoliceStation += _storagesKeeper.PoliceStorage.AvtozakUpgrade.EndUpgrade;
+                        return;
                     }
                 }
+                DeselectObject();
             }
+
             _selectedObject = hit.collider.gameObject;
+            if(policeStation != null)
+                _storagesKeeper.PoliceStorage.AvtozakShop.OpenAvtozakShop(policeStation);
             OutlineObject();
         }
 
@@ -56,12 +57,13 @@ namespace InputSystem
             {
                 _pointer.position = policeStation.PointerPoint.position;
                 _pointer.gameObject.SetActive(true);
-                
             }
         }
 
-        private void DeselectObject()
+        public void DeselectObject()
         {
+            _storagesKeeper.PoliceStorage.AvtozakUpgrade.EndUpgrade();
+            _storagesKeeper.PoliceStorage.AvtozakShop.CloseAvtozakShop();
             if(_selectedObject == null) return;
             var avtozak = _selectedObject.GetComponent<AvtozakBehavior>();
             if(avtozak != null) avtozak.Outline.SetActive(false);
