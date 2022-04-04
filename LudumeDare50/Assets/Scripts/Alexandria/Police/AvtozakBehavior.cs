@@ -7,8 +7,11 @@ using TMPro;
 
 namespace Police
 {
+    public delegate void SendAvtozak(AvtozakBehavior avtozak);
+
     public class AvtozakBehavior : MonoBehaviour
     {
+        public event SendAvtozak Destructed;
         [SerializeField]
         private AvtozakMovement _movement;
         [SerializeField]
@@ -28,6 +31,8 @@ namespace Police
         private float _arrestDelay;
         [SerializeField]
         private float _unloadingDelay;
+        [SerializeField]
+        private int _avtozakPrice;
         private Miting _onMiting;
 
         public int Health => _health;
@@ -35,28 +40,37 @@ namespace Police
         public int Capacity => _capacity;
         public float ArrestDelay => _arrestDelay;
 
+        public int AvtozakPrice => _avtozakPrice;
+
         private void Awake()
         {
-            _healthBar.maxValue = _health;
+            Upgrade(_health, _speed, _capacity, _arrestDelay);
             _healthBar.value = _health;
-            _occupancyBar.maxValue = _capacity;
             _occupancyBar.value = 0;
             _count.text = "0";
             _movement.ArrivedOnMiting += StartArrests;
             _movement.LeavedMiting += EndArrests;
             _movement.ArrivedOnPoliceStation += OnPoliceStation;
             _movement.LeavedPoliceStation += LeavePoliceStation;
-            _movement.Initialize(_speed, this);
+        }
+        
+        public void Initialize(Square square)
+        {
+            _movement.Initialize(Speed, this, square);
         }
 
         public void Upgrade(int health, float speed, int capacity, float arrestDelay)
         {
+            _healthBar.maxValue = health;
+            var healthChange = health - _health;
             _health = health;
-            _healthBar.maxValue = _health;
             _capacity = capacity;
             _occupancyBar.maxValue = _capacity;
-            _movement.Initialize(_speed, this);
+            if(_occupancyBar.value > _capacity) _occupancyBar.value = _capacity;
+            _speed = speed;
+            _movement.Initialize(_speed, this, _movement.OnSquare);
             _arrestDelay = arrestDelay;
+            TakeDamage(-healthChange);
         }
         
         public void MoveCommand(Vector3 point, GameObject target)
@@ -85,12 +99,13 @@ namespace Police
             if(_healthBar.value <= 0) Destruction();
         }
 
-        private void Destruction()
+        public void Destruction()
         {
             if(_movement.OnSquare != null) 
                 _movement.OnSquare.LeaveSquare(this);
             EndArrests();
             Debug.Log("Avtozak " + this + " destroyed");
+            Destructed?.Invoke(this);
             Destroy(gameObject);
         }
 
@@ -125,6 +140,7 @@ namespace Police
             {
                 var policeStation = _movement.OnSquare.GetComponent<PoliceStation>();
                 if(policeStation != null)
+                {
                     if(_occupancyBar.value > 1)
                     {
                         _occupancyBar.value--;
@@ -136,6 +152,7 @@ namespace Police
                         _occupancyBar.value--;
                         _count.text = _occupancyBar.value.ToString();
                     }
+                }
             }
         }
     }

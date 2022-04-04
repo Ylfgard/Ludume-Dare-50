@@ -4,10 +4,14 @@ using Police;
 
 namespace City
 {
+    public delegate void SendMiting(Miting miting);
+
     public class MitingSquare : Square
     {
         public event EventHappend MitingStarted;
         public event EventHappend MitingEnded;
+        public event SendMiting MitingSpawned;
+        public event SendMiting MitingDespawned;
         private Miting _miting;
 
         public Miting Miting => _miting;
@@ -45,12 +49,14 @@ namespace City
             protest.ProtestEnded += EndMiting;
             CheckForResistence();
             MitingStarted?.Invoke();
+            MitingSpawned?.Invoke(_miting);
         }
         
         public void EndMiting()
         {
             _miting.Protest.ProtestEnded -= EndMiting;
             MitingEnded?.Invoke();
+            MitingDespawned?.Invoke(_miting);
             _miting = null;
         }
     }
