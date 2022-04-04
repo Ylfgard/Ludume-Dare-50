@@ -12,14 +12,24 @@ namespace Protesters
         [SerializeField]
         private Slider _bar;
         [SerializeField]
+        private float _passiveMoodChanging;
+        [SerializeField]
+        private float _passiveMoodChangingPeriod;
         private float _moodСhanging;
 
         public float Level => _bar.value;
+        public float PassiveMoodChanging => _passiveMoodChanging;
         public float MoodChanging => _moodСhanging;
+
+        private void Awake()
+        {
+            _passiveMoodChangingPeriod *= 100;    
+        }
 
         private void FixedUpdate() 
         {
-            ChangeRevolutionLevel(_moodСhanging);
+            var passiveMoodChanging = _passiveMoodChanging * Time.fixedDeltaTime / _passiveMoodChangingPeriod;
+            ChangeRevolutionLevel(_moodСhanging + passiveMoodChanging);
         }
 
         public void ChangeMoodChanging(float value)
@@ -27,9 +37,14 @@ namespace Protesters
             _moodСhanging += value;
         }
 
-        public void SetMoodChanging(float moodChanging)
+        public void ChangePassiveMoodChanging(float value)
         {
-            _moodСhanging = moodChanging;
+            _passiveMoodChanging += value;
+        }
+
+        public void SetPassiveMoodChanging(float moodChanging)
+        {
+            _passiveMoodChanging = moodChanging;
         }
 
         public void ChangeRevolutionLevel(float value)

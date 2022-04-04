@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0121c5e3d74b4fb4d836aece62fa8cb4, type: 3}
-  m_Name: TaxEffect
+  m_Name: IncomeX200T60
   m_EditorClassIdentifier: 
   _scope: 0
-  _duration: 0
+  _duration: 60
   _delay: 0
   _type: 0
   _inPercent: 1

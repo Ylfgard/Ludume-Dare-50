@@ -9,13 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6750ee5c9dda2d243b619e8e7a65fa37, type: 3}
-  m_Name: PoliceEffect
+  m_Script: {fileID: 11500000, guid: f06d1e5d830880c4e89565680a4185c0, type: 3}
+  m_Name: DiscontentX150T60
   m_EditorClassIdentifier: 
-  _scope: 3
-  _duration: 0
+  _scope: 1
+  _duration: 60
   _delay: 0
   _type: 0
-  _affects: 0
-  _inPercent: 0
-  _value: 0
+  _inPercent: 1
+  _value: 150

@@ -1,5 +1,6 @@
 using UnityEngine;
 using Protesters;
+using Laws.Managers;
 
 namespace GameDataKeepers
 {
@@ -13,10 +14,13 @@ namespace GameDataKeepers
         private MitingsDataStorage _mitingsStorage;
         [SerializeField]
         private PoliceDataStorage _policeStorage;
+        [SerializeField]
+        private LawsKeeper _lawsKeeper;
 
         public MoneySystem MoneySystem => _moneySystem;
         public RevolutionBar RevolutionBar => _revolutionBar;
         public MitingsDataStorage MitingsStorage => _mitingsStorage;
         public PoliceDataStorage PoliceStorage => _policeStorage;
+        public LawsKeeper LawsKeeper => _lawsKeeper;
     }
 }

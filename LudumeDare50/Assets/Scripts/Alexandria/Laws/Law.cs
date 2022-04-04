@@ -11,23 +11,17 @@ namespace Laws
         [SerializeField]
         private TextMeshProUGUI _description;
         private LawContentSO _content;
-        [SerializeField]
-        private LawContentSO _test;
         private Lawmaker _lawmaker;
-        
-        private void Start()
-        {
-            _lawmaker = FindObjectOfType<Lawmaker>();
-            Initialize(_test);
-        }
         
         public void ActivateLaw()
         {
             _lawmaker.AdoptLaw(_content);
+            Destroy(gameObject);
         }
 
         public void Initialize(LawContentSO influence)
         {
+            _lawmaker = FindObjectOfType<Lawmaker>();
             _content = influence;
             _name.text = _content.Name;
             _description.text = _content.Description;
