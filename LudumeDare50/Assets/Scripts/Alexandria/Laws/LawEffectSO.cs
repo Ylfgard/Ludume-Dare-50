@@ -6,9 +6,9 @@ namespace Laws.Effects
     {
         [SerializeField]
         protected LawScope _scope;
-        [SerializeField]
+        [SerializeField] [Range (0, 10000)]
         protected float _duration;
-        [SerializeField]
+        [SerializeField] [Range (0, 10000)]
         protected float _delay;
         
         public LawScope Scope => _scope;
