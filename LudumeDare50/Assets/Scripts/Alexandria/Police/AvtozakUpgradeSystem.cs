@@ -13,6 +13,10 @@ namespace Police
         [SerializeField] private TextMeshProUGUI _healthText;
         [SerializeField] private TextMeshProUGUI _totalPriceText;
 
+        [Header ("UI windows")]
+        [SerializeField] private GameObject _upgradeWindow;
+        [SerializeField] private GameObject _shopWindow;
+
 
         [Header("Values")]
         [SerializeField] private float _arrestDelay;
@@ -36,10 +40,12 @@ namespace Police
         [Header("Total Price")]
         [SerializeField] private int _totalPrice;
 
-
-
-
         private void Awake()
+        {
+            EndUpgrade();    
+        }
+
+        private void ActivateUpgradeWindow()
         {
             _arrestDelay = _behaviour.ArrestDelay;
             _capacity = _behaviour.Capacity;
@@ -181,9 +187,17 @@ namespace Police
             _totalPriceText.text = _totalPrice.ToString();
         }
 
-        public void SendAvtozak()
+        public void StartUpgrade(AvtozakBehavior behavior)
         {
+            _behaviour = behavior;
+            ActivateUpgradeWindow();
+            _upgradeWindow.SetActive(true);
+        }
 
+        public void EndUpgrade()
+        {
+            _behaviour = null;
+            _upgradeWindow.SetActive(false);
         }
     }
 }

@@ -8,14 +8,17 @@ namespace GameDataKeepers
 {
     public class PoliceDataStorage : MonoBehaviour
     {
+        private AvtozakUpgradeSystem _avtozakUpgrade;
         private List<AvtozakBehavior> _avtozaks;
         private List<PoliceStation> _policeStations;
 
+        public AvtozakUpgradeSystem AvtozakUpgrade => _avtozakUpgrade;
         public List<AvtozakBehavior> Avtozaks => _avtozaks;
         public List<PoliceStation> PoliceStations => _policeStations;
 
         private void Awake()
         {
+            _avtozakUpgrade = FindObjectOfType<AvtozakUpgradeSystem>();
             _avtozaks = FindObjectsOfType<AvtozakBehavior>().ToList();
             _policeStations = FindObjectsOfType<PoliceStation>().ToList();
             foreach(var avtozak in _avtozaks)

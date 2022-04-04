@@ -35,16 +35,16 @@ namespace Police
         private float _unloadingDelay;
         [SerializeField]
         private int _avtozakPrice;
-
         private Miting _onMiting;
+        private PoliceStation _onPoliceStation;
 
         public int Health => _health;
         public float Speed => _speed;
         public int Capacity => _capacity;
         public float ArrestDelay => _arrestDelay;
         public int AvtozakPrice => _avtozakPrice;
-
         public GameObject Outline => _outline;
+        public PoliceStation OnPoliceStation => _onPoliceStation;
 
         private void Awake()
         {
@@ -54,7 +54,7 @@ namespace Police
             _count.text = "0";
             _movement.ArrivedOnMiting += StartArrests;
             _movement.LeavedMiting += EndArrests;
-            _movement.ArrivedOnPoliceStation += OnPoliceStation;
+            _movement.ArrivedOnPoliceStation += StayPoliceStation;
             _movement.LeavedPoliceStation += LeavePoliceStation;
         }
         
@@ -127,14 +127,16 @@ namespace Police
             else EndArrests();
         }
         
-        public void OnPoliceStation()
+        private void StayPoliceStation()
         {
             if(_occupancyBar.value > 0) StartCoroutine(Unloading());
+            _onPoliceStation = _movement.OnSquare as PoliceStation;
         }
 
-        public void LeavePoliceStation()
+        private void LeavePoliceStation()
         {
             StopAllCoroutines();
+            _onPoliceStation = null;
         }
 
         private IEnumerator Unloading()
