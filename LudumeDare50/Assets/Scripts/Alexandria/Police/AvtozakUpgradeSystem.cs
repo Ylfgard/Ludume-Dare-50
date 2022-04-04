@@ -13,7 +13,7 @@ namespace Police
         [SerializeField] private TextMeshProUGUI _healthText;
         [SerializeField] private TextMeshProUGUI _totalPriceText;
 
-        [Header ("UI windows")]
+        [Header("UI windows")]
         [SerializeField] private GameObject _upgradeWindow;
 
 
@@ -41,7 +41,7 @@ namespace Police
 
         private void Awake()
         {
-            EndUpgrade();    
+            EndUpgrade();
         }
 
         private void ActivateUpgradeWindow()
@@ -81,7 +81,7 @@ namespace Police
                 _arrestDelay = _behaviour.ArrestDelay;
                 _arrestDelayText.text = _arrestDelay.ToString();
                 _arrestDelayUpgradeValue = 0;
-            }    
+            }
         }
 
         public void IncreaseCapacity()
