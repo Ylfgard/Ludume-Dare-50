@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using FMODUnity;
 using City;
 using Protesters;
 
@@ -13,9 +14,15 @@ namespace Police
         public event EventHappend LeavedPoliceStation;
         [SerializeField]
         private NavMeshAgent _agent;
+        [Header ("Sound paths")]
+        [SerializeField] [EventRef]
+        private string _movingOn;
+        [SerializeField] [EventRef]
+        private string _stop;
         private AvtozakBehavior _behavior;
         private Square _onSquare;
         private Square _targetSquare;
+        private bool _inMoving;
 
         public Square OnSquare => _onSquare;
 
@@ -29,8 +36,11 @@ namespace Police
         public void MoveToPoint(Vector3 point)
         {
             _agent.SetDestination(point);
+            if(_inMoving && Random.Range(0, 7) < 6) return;
+            RuntimeManager.PlayOneShot(_movingOn);
+            _inMoving = true;
         }
-
+        
         public void MoveToSquare(Vector3 point, Square square)
         {
             MoveToPoint(point);
@@ -39,9 +49,17 @@ namespace Police
             square.EnteredSquare += ArrivedOnSquare;
             _targetSquare = square;
         }
-
+        
+        private void PlayStopSound()
+        {
+            if(_inMoving == false) return;
+            RuntimeManager.PlayOneShot(_stop);
+            _inMoving = false;
+        }
+        
         private void ArrivedOnSquare(Collider collider, Square square)
         {
+            PlayStopSound();
             var avtozak = collider.GetComponent<AvtozakMovement>();
             if(avtozak != this) return;
             _onSquare = square;

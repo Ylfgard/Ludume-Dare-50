@@ -20,11 +20,6 @@ public class MenuSystem: MonoBehaviour
 
     [SerializeField] [EventRef] private string _buttonPushSound;
 
-    //[Header("Volume Settings")]
-    //private FMOD.Studio.VCA _vcaController;
-
-    //public string VcaName;
-
     private int _qualityLevel;
     private bool _isFullScreen;
 
@@ -51,9 +46,6 @@ public class MenuSystem: MonoBehaviour
             _resolutionDropdown.value = _currentResolutionIndex;
             _resolutionDropdown.RefreshShownValue();
         }
-
-        //_vcaController = FMODUnity.RuntimeManager.GetVCA("vca:/" + VcaName);
-
     }
 
     public void StartingNewGame()
@@ -66,9 +58,6 @@ public class MenuSystem: MonoBehaviour
     {
         Application.Quit();
     }
-
-
-
     public void SetQuality(int qualityIndex)
     {
         _qualityLevel = qualityIndex;
@@ -103,9 +92,5 @@ public class MenuSystem: MonoBehaviour
     public void PlayButtonPushSound()
     {
         RuntimeManager.PlayOneShot(_buttonPushSound);
-    }
-    public void SetVolume(float volume)
-    {
-        //_vcaController.setVolume(volume);
     }
 }

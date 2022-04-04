@@ -9,22 +9,37 @@ namespace City
         [SerializeField] private GameObject _avtozakPrefab;
         [SerializeField] private Transform _spawnPoint;
         [SerializeField] private Transform _arrivingPoint;
+        [SerializeField] private Transform _pointerPoint;
         public event SendAvtozak AvtozakSpawned;
         private bool _isTriggeredEvent;
+        private GameObject _arrivingSquare;
 
+        public Transform PointerPoint => _pointerPoint;
+        public Transform ArrivingPoint => _arrivingPoint;
 
-        public void SpawnAvtozak()
+        private void Start()
+        {
+            _arrivingSquare = this.gameObject;    
+        }
+
+        public void SetArrivingPoint(Vector3 position, GameObject arrivingSquare)
+        {
+            _arrivingPoint.position = position;
+            _arrivingSquare = arrivingSquare;
+        }
+
+        public void SpawnAvtozak(bool shopping)
         {
             if (MoneySystem.Instance.MoneyAmount >= _avtozakPrefab.GetComponent<AvtozakBehavior>().AvtozakPrice)
             {
                 GameObject spawnedAvtozak = Instantiate(_avtozakPrefab, _spawnPoint);
                 AvtozakBehavior avtozakBehaviour = GetAvtozakBehavior(spawnedAvtozak);
                 avtozakBehaviour.Initialize(this);
-                avtozakBehaviour.MoveCommand(_arrivingPoint.position, this.gameObject);
-                DecreaseMoney(avtozakBehaviour);
+                avtozakBehaviour.MoveCommand(_arrivingPoint.position, _arrivingSquare);
+                if(shopping) DecreaseMoney(avtozakBehaviour);
                 if (_isTriggeredEvent) return;
                 _isTriggeredEvent = true;
-                AvtozakSpawned?.Invoke(GetAvtozakBehavior(spawnedAvtozak));
+                AvtozakSpawned?.Invoke(avtozakBehaviour);
             }
         }
 

@@ -113,7 +113,7 @@ namespace Laws.Managers
                 {
                     var randomIndex = Random.Range(0, policeStorage.PoliceStations.Count);
                     policeStorage.PoliceStations[randomIndex].AvtozakSpawned += AddSpawnedAvtozak;
-                    policeStorage.PoliceStations[randomIndex].SpawnAvtozak();
+                    policeStorage.PoliceStations[randomIndex].SpawnAvtozak(false);
                     policeStorage.PoliceStations[randomIndex].AvtozakSpawned -= AddSpawnedAvtozak;
                 }
             }
@@ -126,7 +126,7 @@ namespace Laws.Managers
                         {
                             policeStation.AvtozakSpawned += AddSpawnedAvtozak;
                             for(int i = 0; i < (int)value; i++)
-                                policeStation.SpawnAvtozak();
+                                policeStation.SpawnAvtozak(false);
                             policeStation.AvtozakSpawned -= AddSpawnedAvtozak;
                         }   
                     break;
@@ -134,7 +134,7 @@ namespace Laws.Managers
                     case AffectedAvtozaks.Random:
                         var randomIndex = Random.Range(0, policeStorage.PoliceStations.Count);
                         policeStorage.PoliceStations[randomIndex].AvtozakSpawned += AddSpawnedAvtozak;
-                        policeStorage.PoliceStations[randomIndex].SpawnAvtozak();
+                        policeStorage.PoliceStations[randomIndex].SpawnAvtozak(false);
                         policeStorage.PoliceStations[randomIndex].AvtozakSpawned -= AddSpawnedAvtozak;
                     break;
                 }

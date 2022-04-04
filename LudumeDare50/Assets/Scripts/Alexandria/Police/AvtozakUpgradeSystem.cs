@@ -13,6 +13,10 @@ namespace Police
         [SerializeField] private TextMeshProUGUI _healthText;
         [SerializeField] private TextMeshProUGUI _totalPriceText;
 
+        [Header ("UI windows")]
+        [SerializeField] private GameObject _upgradeWindow;
+        [SerializeField] private GameObject _shopWindow;
+
 
         [Header("Values")]
         [SerializeField] private float _arrestDelay;
@@ -36,10 +40,12 @@ namespace Police
         [Header("Total Price")]
         [SerializeField] private int _totalPrice;
 
-
-
-
         private void Awake()
+        {
+            EndUpgrade();    
+        }
+
+        private void ActivateUpgradeWindow()
         {
             _arrestDelay = _behaviour.ArrestDelay;
             _capacity = _behaviour.Capacity;
@@ -167,23 +173,28 @@ namespace Police
                 MoneySystem.Instance.DecreaseMoneyAmount(_totalPrice);
                 RuntimeManager.PlayOneShot(MoneySystem.Instance.MoneySound);
                 _behaviour.Upgrade(_behaviour.Health + _healthUpgradeValue, _behaviour.Speed + _speedUpgradeValue, _behaviour.Capacity + _capacityUpgradeValue, _behaviour.ArrestDelay + _arrestDelayUpgradeValue);
-                ResetAll();
+                EndUpgrade();
             }
         }
 
-        private void ResetAll()
+        public void StartUpgrade(AvtozakBehavior behavior)
         {
-            _arrestDelayUpgradeValue = 0;
-            _capacityUpgradeValue = 0;
-            _speedUpgradeValue = 0;
-            _healthUpgradeValue = 0;
-            _totalPrice = 0;
-            _totalPriceText.text = _totalPrice.ToString();
+            _behaviour = behavior;
+            ActivateUpgradeWindow();
+            _upgradeWindow.SetActive(true);
         }
 
-        public void SendAvtozak()
+        public void EndUpgrade()
         {
+            _behaviour = null;
+            _upgradeWindow.SetActive(false);
+        }
 
+        public void EndUpgrade(AvtozakBehavior avtozak)
+        {
+            _behaviour = null;
+            avtozak.LeavedPoliceStation -= EndUpgrade;
+            _upgradeWindow.SetActive(false);
         }
     }
 }
