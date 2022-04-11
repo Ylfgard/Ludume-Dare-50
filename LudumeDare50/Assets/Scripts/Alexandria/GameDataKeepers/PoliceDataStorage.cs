@@ -8,6 +8,7 @@ namespace GameDataKeepers
 {
     public class PoliceDataStorage : MonoBehaviour
     {
+        [SerializeField] private Animator _truckDestroyedText;
         private AvtozakUpgradeSystem _avtozakUpgrade;
         private AvtozakShop _avtozakShop;
         private List<AvtozakBehavior> _avtozaks;
@@ -39,6 +40,7 @@ namespace GameDataKeepers
         private void RemoveAvtozak(AvtozakBehavior avtozak)
         {
             _avtozaks.Remove(avtozak);
+            _truckDestroyedText.Play("TruckDestroyed_Anim", -1, 0f);
         }
     }
 }

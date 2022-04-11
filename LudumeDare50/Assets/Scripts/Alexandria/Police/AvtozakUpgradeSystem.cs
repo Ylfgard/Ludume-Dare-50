@@ -204,6 +204,8 @@ namespace Police
         public void EndUpgrade()
         {
             _behaviour = null;
+            _totalPrice = 0;
+            _totalPriceText.text = _totalPrice.ToString();
             _upgradeWindow.SetActive(false);
         }
 

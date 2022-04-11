@@ -25,7 +25,7 @@ public class MenuSystem: MonoBehaviour
 
     private void Start()
     {
-
+        PlayerPrefs.DeleteAll();
         if (!PlayerPrefs.HasKey("AddedResolutions"))
         {
             _resolutions = Screen.resolutions;

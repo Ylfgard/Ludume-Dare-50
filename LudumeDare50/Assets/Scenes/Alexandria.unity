@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43986166, g: 0.48830998, b: 0.5685209, a: 1}
+  m_IndirectSpecularColor: {r: 0.43986216, g: 0.48831058, b: 0.56852174, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7943,6 +7943,10 @@ MonoBehaviour:
   _capacityUpgradeValue: 0
   _speedUpgradeValue: 0
   _healthUpgradeValue: 0
+  _maxArrestDelay: 0
+  _maxCapacity: 0
+  _maxSpeed: 0
+  _maxHealth: 0
   _arrestDelayPrice: 100
   _capacityPrice: 200
   _speedPrice: 50

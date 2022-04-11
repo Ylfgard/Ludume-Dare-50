@@ -31,6 +31,7 @@ namespace Police
         private GameObject _HUD;
         [SerializeField] [EventRef]
         private string _destructionSound;
+        
 
         [Header ("Specifications")]
         [SerializeField]
@@ -185,11 +186,11 @@ namespace Police
         public void Destruction()
         {
             RuntimeManager.PlayOneShot(_destructionSound);
-            if(_onPoliceStation) LeavedPoliceStation?.Invoke(this);
+            Debug.Log("DESTROYED");
+            if (_onPoliceStation) LeavedPoliceStation?.Invoke(this);
             if(_movement.OnSquare != null) 
                 _movement.OnSquare.LeaveSquare(this);
             EndArrests();
-            Debug.Log("Avtozak " + this + " destroyed");
             Destructed?.Invoke(this);
             Destroy(gameObject);
         }
