@@ -17,6 +17,7 @@ public class VcaController : MonoBehaviour
 
     public void SetVolume(float volume)
     {
+        Debug.Log("SetVolume");
         _vcaController.setVolume(volume);
     }
 
