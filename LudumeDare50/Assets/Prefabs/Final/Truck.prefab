@@ -403,7 +403,6 @@ MonoBehaviour:
   _count: {fileID: 6326344010969587194}
   _outline: {fileID: 8063556937887131277}
   _HUD: {fileID: 4249661203471588366}
-  _truckDestroyed: {fileID: 0}
   _destructionSound: event:/car crash
   _health: 7
   _speed: 2
@@ -821,6 +820,24 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &1703458428633340097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5626276965549078944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.6137916, b: 0.07924521, a: 1}
+  outlineWidth: 3
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &5638653858677066045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,5 +1272,10 @@ PrefabInstance:
 --- !u!4 &4998817172788847386 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b76f909791cb50447944186fb91dac9c, type: 3}
+  m_PrefabInstance: {fileID: 4816006918408422641}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5626276965549078944 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b76f909791cb50447944186fb91dac9c, type: 3}
   m_PrefabInstance: {fileID: 4816006918408422641}
   m_PrefabAsset: {fileID: 0}
